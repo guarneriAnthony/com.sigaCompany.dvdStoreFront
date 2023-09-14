@@ -24,8 +24,8 @@ Le projet consiste à développer une application de gestion de DVD en utilisant
 
 Voici un résumé du travail rendu :
 
-- **Lien du Répo GitHub** : 
-- **Lien de l'Outil de Gestion de Projet** : 
+- **Lien du Répo GitHub** : https://github.com/guarneriAnthony/com.sigaCompany.dvdStore
+- **Lien de l'Outil de Gestion de Projet** : https://trello.com/b/KF4kJ8FU/brief-logiciel-de-comptabilit%C3%A9
 
 ### Script de la BDD
 
