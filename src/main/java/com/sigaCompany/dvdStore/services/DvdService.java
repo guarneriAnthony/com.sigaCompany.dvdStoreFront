@@ -15,13 +15,14 @@ public class DvdService {
     @Autowired
     DvdRepository dvdRepository;
 
-
+    // Adds a new Dvd to the store
     public boolean add(DvdServiceModel dvdServiceModel) {
         DvdEntity dvdEntity = new DvdEntity(dvdServiceModel.getName(), dvdServiceModel.getGender(), dvdServiceModel.getQuantity(), dvdServiceModel.getPrice());
         DvdEntity tempObject = dvdRepository.save(dvdEntity);
         return tempObject != null;
     }
 
+    //Updates an existing Dvd in the store
     public boolean updateDvd(long id, DvdDTO dvdDTO){
         Optional<DvdEntity> optionalDvdEntity = dvdRepository.findById(id);
         if (optionalDvdEntity.isPresent()){
@@ -37,6 +38,7 @@ public class DvdService {
         }
     }
 
+    //Retrieves a list of all dvds in the store
     public List<DvdServiceModel> findAll() {
         List<DvdEntity> dvdEntities = dvdRepository.findAll();
         List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
@@ -46,12 +48,14 @@ public class DvdService {
         return dvdServiceModels;
     }
 
+    //Retrieves a Dvd by its ID
     public DvdServiceModel findById(long id) {
         Optional<DvdEntity> dvdEntityOptional = dvdRepository.findById(id);
         DvdEntity dvdEntity = dvdEntityOptional.get();
         return new DvdServiceModel(dvdEntity.getName(), dvdEntity.getGender(), dvdEntity.getQuantity(), dvdEntity.getPrice());
     }
 
+    //Deletes a Dvd by its ID
     public void deleteById(long id) {
         dvdRepository.deleteById(id);
     }
