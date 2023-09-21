@@ -1,4 +1,4 @@
 package com.sigaCompany.dvdStore.controllers;
 
-public record SellDTO() {
+public record SellDTO(long clientId, float dvdId, int quantity) {
 }
