@@ -65,7 +65,6 @@ INSERT INTO `client_seq` (`next_val`) VALUES
 
 CREATE TABLE `dvd` (
   `id` bigint NOT NULL,
-  `gender` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `price` int DEFAULT NULL,
   `quantity` int DEFAULT NULL
@@ -75,7 +74,7 @@ CREATE TABLE `dvd` (
 -- Déchargement des données de la table `dvd`
 --
 
-INSERT INTO `dvd` (`id`, `gender`, `name`, `price`, `quantity`) VALUES
+INSERT INTO `dvd` (`id`, `name`, `price`, `quantity`) VALUES
 (1, '+3', 'Winni', 29, 3),
 (2, '+12', 'Tarzan', 29, 3),
 (102, '+5', 'Bambi', 49, 8);

@@ -1,8 +1,12 @@
 package com.sigaCompany.dvdStore.entities;
 
+import com.sigaCompany.dvdStore.services.DvdServiceModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 @NoArgsConstructor
@@ -13,28 +17,39 @@ public class DvdEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//    @OneToMany(mappedBy = "DvdEntity")
-//    private Set<SellEntity> sellEntities = new HashSet<>();
+    @OneToMany(mappedBy = "dvdEntity")
+    private Set<SellEntity> sellEntities = new HashSet<>();
 
     @Column
     private String name;
     @Column
-    private String gender;
+    private String type;
     @Column
     private int quantity;
     @Column
     private int price;
+    @Column
+    private String description;
+    @Column
+    private String image;
 
-    public DvdEntity(String name, String gender, int quantity, int price) {
-        this.name = name;
-        this.gender = gender;
-        this.quantity = quantity;
-        this.price = price;
-    }public DvdEntity(Long id, String name, String gender, int quantity, int price) {
+
+    public DvdEntity (DvdServiceModel dvd){
+        name = dvd.getName();
+        type = dvd.getType();
+        quantity = dvd.getQuantity();
+        price = dvd.getPrice();
+        description = dvd.getDescription();
+        image = dvd.getImage();
+    }
+
+    public DvdEntity (long id,DvdServiceModel dvd){
         this.id = id;
-        this.name = name;
-        this.gender = gender;
-        this.quantity = quantity;
-        this.price = price;
+        name = dvd.getName();
+        type = dvd.getType();
+        quantity = dvd.getQuantity();
+        price = dvd.getPrice();
+        description = dvd.getDescription();
+        image = dvd.getImage();
     }
 }
