@@ -2,10 +2,13 @@ package com.sigaCompany.dvdStore.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
 @Table(name = "SellEntity")
 public class SellEntity {
     @Id

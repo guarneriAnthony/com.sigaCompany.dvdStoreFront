@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ClientRepository extends CrudRepository<ClientEntity, Long> {
     ClientEntity save(ClientEntity clientEntity);
+
     List<ClientEntity> findAll();
-    ClientEntity findById (long id);
+
+    ClientEntity findById(long id);
 }

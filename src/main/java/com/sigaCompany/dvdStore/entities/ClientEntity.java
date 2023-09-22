@@ -23,7 +23,7 @@ public class ClientEntity {
     @Column(name = "email")
     private String email;
 
-    public ClientEntity(String name, String email){
+    public ClientEntity(String name, String email) {
         this.name = name;
         this.email = email;
     }

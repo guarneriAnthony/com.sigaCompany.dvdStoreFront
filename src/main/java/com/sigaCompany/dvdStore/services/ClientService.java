@@ -15,7 +15,7 @@ public class ClientService {
     ClientRepository clientRepository;
 
     //Adds a new Client
-    public boolean add(ClientServiceModel clientServiceModel){
+    public boolean add(ClientServiceModel clientServiceModel) {
         ClientEntity clientEntity = new ClientEntity(clientServiceModel.getName(), clientServiceModel.getEmail());
         ClientEntity object = clientRepository.save(clientEntity);
         return object != null;
@@ -25,7 +25,7 @@ public class ClientService {
     public List<ClientServiceModel> findAll() {
         List<ClientEntity> clientEntities = clientRepository.findAll();
         List<ClientServiceModel> clientServiceModels = new ArrayList<>();
-        for (ClientEntity client : clientEntities){
+        for (ClientEntity client : clientEntities) {
             clientServiceModels.add(new ClientServiceModel(client.getName(), client.getEmail()));
         }
         return clientServiceModels;

@@ -2,7 +2,6 @@ package com.sigaCompany.dvdStore.controllers;
 
 import com.sigaCompany.dvdStore.services.ClientService;
 import com.sigaCompany.dvdStore.services.ClientServiceModel;
-import com.sigaCompany.dvdStore.services.DvdServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,17 +16,17 @@ public class ClientController {
 
     // Add new Client
     @PostMapping
-    public boolean addClient(@RequestBody ClientDTO clientDTO){
+    public boolean addClient(@RequestBody ClientDTO clientDTO) {
         ClientServiceModel clientServiceModel = new ClientServiceModel(clientDTO.name(), clientDTO.email());
         return clientService.add(clientServiceModel);
     }
 
     // find all Clients
     @GetMapping
-    public List<ClientDTO> findAll(){
+    public List<ClientDTO> findAll() {
         List<ClientServiceModel> clientServiceModels = clientService.findAll();
-        List<ClientDTO>clientDTOS = new ArrayList<>();
-        for (ClientServiceModel client : clientServiceModels){
+        List<ClientDTO> clientDTOS = new ArrayList<>();
+        for (ClientServiceModel client : clientServiceModels) {
             clientDTOS.add(new ClientDTO(client.getName(), client.getEmail()));
         }
         return clientDTOS;
@@ -35,13 +34,13 @@ public class ClientController {
 
     //Update one client
     @PutMapping("{id}")
-    public void updateClient(@PathVariable long id, @RequestBody ClientDTO clientDTO){
+    public void updateClient(@PathVariable long id, @RequestBody ClientDTO clientDTO) {
         clientService.updateClient(id, clientDTO);
     }
 
     //Delete one client
     @DeleteMapping("{id}")
-    public void deleteById(@PathVariable long id){
+    public void deleteById(@PathVariable long id) {
         clientService.deleteById(id);
     }
 }

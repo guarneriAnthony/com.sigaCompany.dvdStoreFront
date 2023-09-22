@@ -33,7 +33,9 @@ public class DvdEntity {
         this.gender = gender;
         this.quantity = quantity;
         this.price = price;
-    }public DvdEntity(Long id, String name, String gender, int quantity, int price) {
+    }
+
+    public DvdEntity(Long id, String name, String gender, int quantity, int price) {
         this.id = id;
         this.name = name;
         this.gender = gender;

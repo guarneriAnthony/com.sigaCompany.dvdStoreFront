@@ -23,9 +23,9 @@ public class DvdService {
     }
 
     //Updates an existing Dvd in the store
-    public boolean updateDvd(long id, DvdDTO dvdDTO){
+    public boolean updateDvd(long id, DvdDTO dvdDTO) {
         Optional<DvdEntity> optionalDvdEntity = Optional.ofNullable(dvdRepository.findById(id));
-        if (optionalDvdEntity.isPresent()){
+        if (optionalDvdEntity.isPresent()) {
             DvdEntity dvdEntity = optionalDvdEntity.get();
             dvdEntity.setName(dvdDTO.name());
             dvdEntity.setGender(dvdDTO.gender());
@@ -42,7 +42,7 @@ public class DvdService {
     public List<DvdServiceModel> findAll() {
         List<DvdEntity> dvdEntities = dvdRepository.findAll();
         List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
-        for (DvdEntity dvd : dvdEntities){
+        for (DvdEntity dvd : dvdEntities) {
             dvdServiceModels.add(new DvdServiceModel(dvd.getName(), dvd.getGender(), dvd.getQuantity(), dvd.getPrice()));
         }
         return dvdServiceModels;
