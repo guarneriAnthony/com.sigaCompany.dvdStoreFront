@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @NoArgsConstructor
 @Entity
@@ -13,8 +16,8 @@ public class DvdEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//    @OneToMany(mappedBy = "DvdEntity")
-//    private Set<SellEntity> sellEntities = new HashSet<>();
+    @OneToMany(mappedBy = "dvdEntity")
+    private Set<SellEntity> sellEntities = new HashSet<>();
 
     @Column
     private String name;

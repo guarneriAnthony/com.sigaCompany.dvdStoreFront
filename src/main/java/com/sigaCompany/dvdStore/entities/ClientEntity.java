@@ -15,8 +15,8 @@ public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//    @OneToMany(mappedBy = "ClientEntity")
-//    private Set<SellEntity> sellEntities = new HashSet<>();
+    @OneToMany(mappedBy = "clientEntity")
+    private Set<SellEntity> sellEntities = new HashSet<>();
 
     @Column(name = "name")
     private String name;

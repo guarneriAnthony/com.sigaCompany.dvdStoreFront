@@ -8,4 +8,5 @@ import java.util.List;
 public interface DvdRepository extends CrudRepository<DvdEntity, Long> {
     DvdEntity save(DvdEntity dvdEntity);
     List<DvdEntity> findAll();
+    DvdEntity findById (long id);
 }
