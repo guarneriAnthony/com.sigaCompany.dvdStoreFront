@@ -1,0 +1,15 @@
+<main>
+
+
+<button class="nav-link" (click)="handleTypeClickButton('Kids')">Kids</button>
+<button class="nav-link" (click)="handleTypeClickButton('Aventure')">Aventure</button>
+<button class="nav-link" (click)="handleTypeClickButton('Romance')">Romance</button>
+
+
+<div class="movie-card" *ngFor="let dvd of dvdToShow; let index in dvdToShow">
+    <a [href]="'/dvds/'+index"></a>
+    <h2>{{dvd.name}}</h2>
+    <h3>{{dvd.type}}</h3>
+    <h3>{{dvd.quantity}}</h3>
+</div>
+</main>

@@ -1,0 +1,14 @@
+
+
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <div class="d-flex" role="search">
+      <input class="form-control  me-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchText">
+      <button class="btn btn-outline-success" (click)="handleButtonSearchClick()">Search</button>
+    </div>
+    <a class="navbar-brand">Log in / Sign in</a>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
