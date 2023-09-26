@@ -1,5 +1,6 @@
 package com.sigaCompany.dvdStore.entities;
 
+import com.sigaCompany.dvdStore.services.ClientServiceModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,5 +33,14 @@ public class ClientEntity {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+    public ClientEntity(ClientServiceModel client){
+        name = client.getName();
+        email = client.getEmail();
+    }
+    public ClientEntity( long id,ClientServiceModel client) {
+        this.id = id;
+        name = client.getName();
+        email = client.getEmail();
     }
 }

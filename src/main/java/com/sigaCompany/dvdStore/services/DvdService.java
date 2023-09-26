@@ -17,7 +17,7 @@ public class DvdService {
 
     // Adds a new Dvd to the store
     public boolean add(DvdServiceModel dvdServiceModel) {
-        DvdEntity dvdEntity = new DvdEntity(dvdServiceModel.getName(), dvdServiceModel.getGender(), dvdServiceModel.getQuantity(), dvdServiceModel.getPrice());
+        DvdEntity dvdEntity = new DvdEntity(dvdServiceModel.getName(), dvdServiceModel.getType(), dvdServiceModel.getQuantity(), dvdServiceModel.getPrice(),dvdServiceModel.getDescription(), dvdServiceModel.getImage());
         DvdEntity tempObject = dvdRepository.save(dvdEntity);
         return tempObject != null;
     }
@@ -28,7 +28,7 @@ public class DvdService {
         if (optionalDvdEntity.isPresent()) {
             DvdEntity dvdEntity = optionalDvdEntity.get();
             dvdEntity.setName(dvdDTO.name());
-            dvdEntity.setGender(dvdDTO.gender());
+            dvdEntity.setType(dvdDTO.type());
             dvdEntity.setQuantity(dvdDTO.quantity());
             dvdEntity.setPrice(dvdDTO.price());
             dvdRepository.save(dvdEntity);
@@ -43,7 +43,7 @@ public class DvdService {
         List<DvdEntity> dvdEntities = dvdRepository.findAll();
         List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
         for (DvdEntity dvd : dvdEntities) {
-            dvdServiceModels.add(new DvdServiceModel(dvd.getName(), dvd.getGender(), dvd.getQuantity(), dvd.getPrice()));
+            dvdServiceModels.add(new DvdServiceModel(dvd.getName(), dvd.getType(), dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
         }
         return dvdServiceModels;
     }
@@ -52,11 +52,30 @@ public class DvdService {
     public DvdServiceModel findById(long id) {
         Optional<DvdEntity> dvdEntityOptional = Optional.ofNullable(dvdRepository.findById(id));
         DvdEntity dvdEntity = dvdEntityOptional.get();
-        return new DvdServiceModel(dvdEntity.getName(), dvdEntity.getGender(), dvdEntity.getQuantity(), dvdEntity.getPrice());
+        return new DvdServiceModel(dvdEntity.getName(), dvdEntity.getType(), dvdEntity.getQuantity(), dvdEntity.getPrice(), dvdEntity.getDescription(), dvdEntity.getImage());
     }
 
     //Deletes a Dvd by its ID
     public void deleteById(long id) {
         dvdRepository.deleteById(id);
+    }
+
+    public List<DvdServiceModel> findByName(String name) {
+        List<DvdEntity> dvdEntities = dvdRepository.findByName(name);
+        List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
+        for ( DvdEntity dvd : dvdEntities) {
+            dvdServiceModels.add(new DvdServiceModel(dvd));
+        }
+        return dvdServiceModels;
+    }
+
+    // Find Dvd by Type
+    public List<DvdServiceModel> findByType(String type) {
+        List<DvdEntity> dvdEntities = dvdRepository.findByType(type);
+        List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
+        for ( DvdEntity dvd : dvdEntities) {
+            dvdServiceModels.add(new DvdServiceModel(dvd));
+        }
+        return dvdServiceModels;
     }
 }

@@ -40,4 +40,30 @@ public class ClientService {
     public void deleteById(long id) {
         clientRepository.deleteById(id);
     }
+
+    // Find information from one Client, by id
+    public ClientServiceModel finById(long id) {
+        ClientEntity client = clientRepository.findById(id);
+        return new ClientServiceModel(client);
+    }
+
+    // Find Client by Name
+    public List<ClientServiceModel> findByName(String name) {
+        List<ClientEntity> clientEntities = clientRepository.findByName(name);
+        List<ClientServiceModel> clientServiceModels = new ArrayList<>();
+        for ( ClientEntity client : clientEntities) {
+            clientServiceModels.add(new ClientServiceModel(client));
+        }
+        return clientServiceModels;
+    }
+
+    // Find Client by Email
+    public List<ClientServiceModel> findByEmail(String email) {
+        List<ClientEntity> clientEntities = clientRepository.findByEmail(email);
+        List<ClientServiceModel> clientServiceModels = new ArrayList<>();
+        for ( ClientEntity client : clientEntities) {
+            clientServiceModels.add(new ClientServiceModel(client));
+        }
+        return clientServiceModels;
+    }
 }
