@@ -19,20 +19,24 @@ Le projet consiste à développer une application de gestion de DVD en utilisant
 11. Création d'un Client et d'une Vente
 12. Création d'une Route pour la Vente de DVD
 13. Utilisation des Réponses Entity pour les Réponses REST
+14. Trouver un logo ou le créer
+15. Faire toutes les interfaces qui correspondent à votre état d'avancement du back-end
+16. Pensez à faire une connexion de l'administrateur
+17. Proposez vos visuels à vos pairs et receuillir les notes les sur 10
+18. Devellopper avec Angular les interfaces
+19. Connecter les interfaces au back-end et s'assurer que tout fonctionne.
+20. Partagez votre git qui doit contenir le projet Back-End, le fichier figma et le projet Front End
 
 ## Travail Rendu
 
 Voici un résumé du travail rendu :
 
-- **Lien du Répo GitHub** : https://github.com/guarneriAnthony/com.sigaCompany.dvdStore
-- **Lien de l'Outil de Gestion de Projet** : https://trello.com/b/KF4kJ8FU/brief-logiciel-de-comptabilit%C3%A9
+- **Lien du Répo GitHub** : https://github.com/guarneriAnthony/com.sigaCompany.dvdStoreFront
+- **Lien de l'Outil de Gestion de Projet** : https://trello.com/b/4oH3iy6d/logiciele-de-comptabilit%C3%A9-brief-front
 
 ### Script de la BDD
 
 Vous trouverez le script SQL pour la base de données dans le fichier 
-
-### Capture d'Écran de l'Interface
-
 
 
 ### Évaluation
@@ -46,6 +50,11 @@ Le travail a été évalué conformément aux modalités définies, avec des val
 3. Configurez votre base de données en utilisant le script fourni.
 4. Lancez l'application Spring Boot.
 5. Utilisez Postman pour tester les différentes fonctionnalités de l'application.
+6. Qualité du logo
+7. Respect des couleurs du logo
+8. Utilisation des fonctionnalités figma
+9. Qualité et communication dans les interfaces
+10. Une application fonctionnelle
 
 ## Conclusion
 
@@ -55,4 +64,4 @@ Merci pour cette opportunité d'apprentissage !
 
 Guarneri Anthony, 
 ExeSiga
-15/07/2023
+15/10/2023
