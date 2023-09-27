@@ -12,6 +12,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "dvdStore")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
+
 public class DvdController {
     @Autowired
     DvdService dvdService;

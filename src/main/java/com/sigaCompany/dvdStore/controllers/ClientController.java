@@ -16,6 +16,10 @@ public class ClientController {
     @Autowired
     ClientService clientService;
 
+
+    @CrossOrigin (origins = "http://localhost:4200/")
+
+
     // Add new Client
     @PostMapping
     public boolean addClient(@RequestBody ClientDTO clientDTO) {

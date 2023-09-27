@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { Axios } from 'axios';
 import { TypeEnum } from './utils/enums/TypeEnums';
 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const baseUrl = 'http://localhost:8080/dvdStore';
+
+
 export interface DvdGetAllDTO {
   name: String,
   type: TypeEnum,
@@ -18,10 +24,11 @@ export interface DvdGetAllDTO {
 })
 export class DvdServiceService {
 
-  constructor(private axios: Axios) { }
+  constructor(private http: HttpClient) { }
 
-   getAllDvd = async () : Promise<Array<DvdGetAllDTO>> => {
-    return this.axios.get('http://localhost:8080/dvdStore/');
-  }
+
+ getAll(): Observable<DvdGetAllDTO> {
+   return this.http.get<DvdGetAllDTO>(baseUrl);    
+ }
 
 }
