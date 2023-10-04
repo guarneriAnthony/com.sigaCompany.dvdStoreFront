@@ -1,13 +1,30 @@
 
 
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <div class="d-flex" role="search">
-      <input class="form-control  me-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchText">
-      <button class="btn btn-outline-success" (click)="handleButtonSearchClick()">Search</button>
+<nav class="navbar bg-dark">
+  <div class="container-fluid ">
+    <div class="d-flex justify-content-center align-items-center">
+      <img src="../assets/logoClickCompta.png" class="img-fluid logo" alt="image Logo">
+    <h1 class="text-light">ClickCompta</h1>
     </div>
-    <a class="navbar-brand">Log in / Sign in</a>
+    <div class="d-flex " role="search">
+      <input class="form-control  me-2" type="search" placeholder="Search Movies ..." aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchText">
+      <button class="btn btn-outline-light" (click)="handleButtonSearchClick()">
+        <img src="../assets/loupe.png" alt="image search">
+      </button>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+      <img src="../assets/ico-connex.png" alt="image connect" class="img-fluid me-3">
+      <a class="navbar-brand text-light">Log in / Sign in</a>
+    </div>
+    
+  </div>
+</nav>
+
+<nav class="navbar bg-primary">
+  <div class="container-fluid d-flex justify-content-space-evenly" style="justify-content: space-evenly;">
+      <a [routerLink]="['']" class="navbar-brand text-light">Dvd</a>
+      <a [routerLink]="['/clients-list'] " class="navbar-brand text-light">Clients</a>
+      <a [routerLink]="['/sales-list']" class="navbar-brand text-light">Sales</a>
   </div>
 </nav>
 

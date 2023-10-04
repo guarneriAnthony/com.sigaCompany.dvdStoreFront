@@ -5,10 +5,12 @@ import com.sigaCompany.dvdStore.controllers.DvdDTO;
 import com.sigaCompany.dvdStore.entities.DvdEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 public class DvdServiceModel {
+    private  Long id;
     private String name;
     private String type;
     private int quantity;
@@ -33,5 +35,13 @@ public class DvdServiceModel {
         this.image = dvdEntity.getImage();
     }
 
-
+    public DvdServiceModel(Long id, String name, String type, int quantity, int price, String description, String image) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.quantity = quantity;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+    }
 }

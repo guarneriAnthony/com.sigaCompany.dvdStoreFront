@@ -26,7 +26,7 @@ public class ClientService {
         List<ClientEntity> clientEntities = clientRepository.findAll();
         List<ClientServiceModel> clientServiceModels = new ArrayList<>();
         for (ClientEntity client : clientEntities) {
-            clientServiceModels.add(new ClientServiceModel(client.getName(), client.getEmail()));
+            clientServiceModels.add(new ClientServiceModel(client));
         }
         return clientServiceModels;
     }

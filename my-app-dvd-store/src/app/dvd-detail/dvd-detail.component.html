@@ -1,0 +1,39 @@
+<h2 class="text-center m-5"> {{dvdToShow?.name}} </h2>
+<div *ngIf="dvdToShow">
+    <div class="container d-flex">
+        <div class="row d-flex justify-content-center ">
+          <div class="col-md-3 ">
+            <div class="card mx-auto p-5 shadow card-home" style="width: 18rem;">
+              <img src="../assets/{{dvdToShow.name}}.png"  alt="image dvd">
+              <div class="card-body">
+                <h5 class="card-title text-center">{{dvdToShow.name}}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p>Type : {{dvdToShow.type}}</p>
+                </li>
+                <li class="list-group-item text-primary">
+                  <p>Price : {{dvdToShow.price}} €</p>
+                </li>
+                <li class="list-group-item text-end">
+                  <p>Quantity : {{getQuantityText(dvdToShow.quantity)}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mx-auto mt-5 text-center"> 
+            Description du dvd ICI,  voir le content plus tard 
+            <p> {{dvdToShow.description}}</p>
+        </div>
+      </div>
+  </div>
+
+
+  <nav class="navbar bg-light mb-5 mt-5">
+    <div class="container-fluid d-flex justify-content-space-evenly" style="justify-content: space-evenly;">
+        <a [routerLink]="['/dvd-crud', dvdToShow?.id]" class="navbar-brand "><img src="../assets/add.png" class="img-dvd" alt="image add">     Add</a>
+        <a class="navbar-brand "><img src="../assets/edit.png" class="img-dvd" alt="image edit">     Edit</a>
+        <a class="navbar-brand "><img src="../assets/delete.png" class="img-dvd" alt="image delete">     delete</a>
+    </div>
+  </nav>

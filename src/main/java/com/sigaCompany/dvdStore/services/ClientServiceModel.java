@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ClientServiceModel {
+    private long id;
     private String name;
     private String email;
 
@@ -16,6 +17,7 @@ public class ClientServiceModel {
         this.email = clientDTO.email();
     }
     public ClientServiceModel(ClientEntity client){
+        this.id = client.getId();
         this.name = client.getName();
         this.email = client.getEmail();
     }

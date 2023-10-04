@@ -22,7 +22,7 @@ public class DvdController {
     // Function to add a new Dvd to the store
     @PostMapping
     public boolean addDvdStore(@RequestBody DvdDTO dvdDTO) {
-        DvdServiceModel dvdServiceModel = new DvdServiceModel(dvdDTO.name(), dvdDTO.type(), dvdDTO.quantity(), dvdDTO.price(), dvdDTO.description(), dvdDTO.image());
+        DvdServiceModel dvdServiceModel = new DvdServiceModel(dvdDTO);
         return dvdService.add(dvdServiceModel);
     }
 
@@ -43,7 +43,7 @@ public class DvdController {
         List<DvdServiceModel> dvdServiceModels = dvdService.findAll();
         List<DvdDTO> dvdDTOS = new ArrayList<>();
         for (DvdServiceModel dvd : dvdServiceModels) {
-            dvdDTOS.add(new DvdDTO(dvd.getName(), dvd.getType(), dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
+            dvdDTOS.add(new DvdDTO(dvd.getId(), dvd.getName(), dvd.getType(), dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
         }
         return dvdDTOS;
     }
@@ -54,7 +54,7 @@ public class DvdController {
         List<DvdServiceModel> dvds = dvdService.findByName(name);
         List<DvdDTO> dvdDTOS = new ArrayList<>();
         for (DvdServiceModel dvd : dvds){
-            dvdDTOS.add(new DvdDTO(dvd.getName(),dvd.getType(),dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
+            dvdDTOS.add(new DvdDTO(dvd.getId(),dvd.getName(),dvd.getType(),dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
         }
         return new ResponseEntity<>(dvdDTOS, HttpStatus.OK);
     }
@@ -66,7 +66,7 @@ public class DvdController {
         List<DvdServiceModel> dvds = dvdService.findByType(type);
         List<DvdDTO> dvdDTOS = new ArrayList<>();
         for (DvdServiceModel dvd : dvds){
-            dvdDTOS.add(new DvdDTO(dvd.getName(),dvd.getType(),dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
+            dvdDTOS.add(new DvdDTO(dvd.getId(),dvd.getName(),dvd.getType(),dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
         }
         return new ResponseEntity<>(dvdDTOS, HttpStatus.OK);
     }
@@ -76,7 +76,7 @@ public class DvdController {
     @GetMapping("{id}")
     public ResponseEntity<DvdDTO> findById(@PathVariable long id) {
         DvdServiceModel dvdServiceModel = dvdService.findById(id);
-        DvdDTO dvdDTO = new DvdDTO(dvdServiceModel.getName(), dvdServiceModel.getType(), dvdServiceModel.getQuantity(), dvdServiceModel.getPrice(), dvdServiceModel.getDescription(), dvdServiceModel.getImage());
+        DvdDTO dvdDTO = new DvdDTO(dvdServiceModel.getId(), dvdServiceModel.getName(), dvdServiceModel.getType(), dvdServiceModel.getQuantity(), dvdServiceModel.getPrice(), dvdServiceModel.getDescription(), dvdServiceModel.getImage());
         return new ResponseEntity<>(dvdDTO, HttpStatus.OK);
     }
 
