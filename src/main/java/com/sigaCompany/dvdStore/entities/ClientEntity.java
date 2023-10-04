@@ -1,5 +1,6 @@
 package com.sigaCompany.dvdStore.entities;
 
+import com.sigaCompany.dvdStore.services.ClientServiceModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,15 +16,15 @@ public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//    @OneToMany(mappedBy = "ClientEntity")
-//    private Set<SellEntity> sellEntities = new HashSet<>();
+    @OneToMany(mappedBy = "clientEntity")
+    private Set<SellEntity> sellEntities = new HashSet<>();
 
     @Column(name = "name")
     private String name;
     @Column(name = "email")
     private String email;
 
-    public ClientEntity(String name, String email){
+    public ClientEntity(String name, String email) {
         this.name = name;
         this.email = email;
     }
@@ -32,5 +33,14 @@ public class ClientEntity {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+    public ClientEntity(ClientServiceModel client){
+        name = client.getName();
+        email = client.getEmail();
+    }
+    public ClientEntity( long id,ClientServiceModel client) {
+        this.id = id;
+        name = client.getName();
+        email = client.getEmail();
     }
 }

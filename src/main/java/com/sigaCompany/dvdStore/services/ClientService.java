@@ -15,7 +15,7 @@ public class ClientService {
     ClientRepository clientRepository;
 
     //Adds a new Client
-    public boolean add(ClientServiceModel clientServiceModel){
+    public boolean add(ClientServiceModel clientServiceModel) {
         ClientEntity clientEntity = new ClientEntity(clientServiceModel.getName(), clientServiceModel.getEmail());
         ClientEntity object = clientRepository.save(clientEntity);
         return object != null;
@@ -25,7 +25,7 @@ public class ClientService {
     public List<ClientServiceModel> findAll() {
         List<ClientEntity> clientEntities = clientRepository.findAll();
         List<ClientServiceModel> clientServiceModels = new ArrayList<>();
-        for (ClientEntity client : clientEntities){
+        for (ClientEntity client : clientEntities) {
             clientServiceModels.add(new ClientServiceModel(client.getName(), client.getEmail()));
         }
         return clientServiceModels;
@@ -39,5 +39,31 @@ public class ClientService {
     //Deletes a client by its ID
     public void deleteById(long id) {
         clientRepository.deleteById(id);
+    }
+
+    // Find information from one Client, by id
+    public ClientServiceModel finById(long id) {
+        ClientEntity client = clientRepository.findById(id);
+        return new ClientServiceModel(client);
+    }
+
+    // Find Client by Name
+    public List<ClientServiceModel> findByName(String name) {
+        List<ClientEntity> clientEntities = clientRepository.findByName(name);
+        List<ClientServiceModel> clientServiceModels = new ArrayList<>();
+        for ( ClientEntity client : clientEntities) {
+            clientServiceModels.add(new ClientServiceModel(client));
+        }
+        return clientServiceModels;
+    }
+
+    // Find Client by Email
+    public List<ClientServiceModel> findByEmail(String email) {
+        List<ClientEntity> clientEntities = clientRepository.findByEmail(email);
+        List<ClientServiceModel> clientServiceModels = new ArrayList<>();
+        for ( ClientEntity client : clientEntities) {
+            clientServiceModels.add(new ClientServiceModel(client));
+        }
+        return clientServiceModels;
     }
 }
