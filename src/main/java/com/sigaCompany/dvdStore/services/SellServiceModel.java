@@ -1,6 +1,6 @@
 package com.sigaCompany.dvdStore.services;
 
-import com.sigaCompany.dvdStore.controllers.SellDTO;
+import com.sigaCompany.dvdStore.dto.SellDTO;
 import com.sigaCompany.dvdStore.entities.ClientEntity;
 import com.sigaCompany.dvdStore.entities.DvdEntity;
 import com.sigaCompany.dvdStore.entities.SellEntity;

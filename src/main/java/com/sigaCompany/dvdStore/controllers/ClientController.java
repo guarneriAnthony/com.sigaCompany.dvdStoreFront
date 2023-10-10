@@ -1,5 +1,6 @@
 package com.sigaCompany.dvdStore.controllers;
 
+import com.sigaCompany.dvdStore.dto.ClientDTO;
 import com.sigaCompany.dvdStore.services.ClientService;
 import com.sigaCompany.dvdStore.services.ClientServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,8 @@
 package com.sigaCompany.dvdStore.services;
 
 
-import com.sigaCompany.dvdStore.controllers.DvdDTO;
+import com.sigaCompany.dvdStore.dto.DvdDTO;
 import com.sigaCompany.dvdStore.entities.DvdEntity;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
