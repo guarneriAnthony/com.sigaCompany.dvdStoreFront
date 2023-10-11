@@ -22,7 +22,6 @@ formulaire() {
   console.log(result);
 })
   }
-//ici le post aux lieu du put
 }
 
 

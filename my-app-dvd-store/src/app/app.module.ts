@@ -9,6 +9,9 @@ import { DvdDetailComponent } from './dvd-detail/dvd-detail.component';
 import { DvdCrudComponent } from './dvd-crud/dvd-crud.component';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { SalesListComponent } from './sales-list/sales-list.component';
+import { RegisterComponent } from './register/register.component';
+import { SigninComponent } from './signin/signin.component';
+import { NewDvdComponent } from './new-dvd/new-dvd.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SalesListComponent } from './sales-list/sales-list.component';
     DvdDetailComponent,
     DvdCrudComponent,
     ClientsListComponent,
-    SalesListComponent
+    SalesListComponent,
+    RegisterComponent,
+    SigninComponent,
+    NewDvdComponent
   ],
   imports: [
     BrowserModule,
