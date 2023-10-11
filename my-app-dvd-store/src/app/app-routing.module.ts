@@ -5,11 +5,22 @@ import { DvdDetailComponent } from './dvd-detail/dvd-detail.component';
 import { DvdCrudComponent } from './dvd-crud/dvd-crud.component';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { SalesListComponent } from './sales-list/sales-list.component';
+import { RegisterComponent } from './register/register.component';
+import { SigninComponent } from './signin/signin.component'
+import { NewDvdComponent } from './new-dvd/new-dvd.component'
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: RegisterComponent
+  },
+  {
+      path: 'home',
+      component: HomeComponent
+  },
+  {
+      path: 'signin',
+      component: SigninComponent
   },
   {
     path: 'dvd-detail/:id',
@@ -26,7 +37,7 @@ const routes: Routes = [
   {
     path: 'sales-list',
     component: SalesListComponent
-  }
+  },
 ];
 
 @NgModule({
