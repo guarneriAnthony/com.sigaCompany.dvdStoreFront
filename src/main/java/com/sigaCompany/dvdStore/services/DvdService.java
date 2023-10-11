@@ -1,6 +1,6 @@
 package com.sigaCompany.dvdStore.services;
 
-import com.sigaCompany.dvdStore.controllers.DvdDTO;
+import com.sigaCompany.dvdStore.dto.DvdDTO;
 import com.sigaCompany.dvdStore.entities.DvdEntity;
 import com.sigaCompany.dvdStore.repositories.DvdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,7 @@ public class DvdService {
         List<DvdEntity> dvdEntities = dvdRepository.findAll();
         List<DvdServiceModel> dvdServiceModels = new ArrayList<>();
         for (DvdEntity dvd : dvdEntities) {
-            dvdServiceModels.add(new DvdServiceModel(dvd.getName(), dvd.getType(), dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
+            dvdServiceModels.add(new DvdServiceModel(dvd.getId(), dvd.getName(), dvd.getType(), dvd.getQuantity(), dvd.getPrice(), dvd.getDescription(), dvd.getImage()));
         }
         return dvdServiceModels;
     }
@@ -52,7 +52,7 @@ public class DvdService {
     public DvdServiceModel findById(long id) {
         Optional<DvdEntity> dvdEntityOptional = Optional.ofNullable(dvdRepository.findById(id));
         DvdEntity dvdEntity = dvdEntityOptional.get();
-        return new DvdServiceModel(dvdEntity.getName(), dvdEntity.getType(), dvdEntity.getQuantity(), dvdEntity.getPrice(), dvdEntity.getDescription(), dvdEntity.getImage());
+        return new DvdServiceModel(dvdEntity.getId(), dvdEntity.getName(), dvdEntity.getType(), dvdEntity.getQuantity(), dvdEntity.getPrice(), dvdEntity.getDescription(), dvdEntity.getImage());
     }
 
     //Deletes a Dvd by its ID

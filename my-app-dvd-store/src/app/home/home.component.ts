@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { TypeEnum } from '../utils/enums/TypeEnums';
-import { DvdServiceService } from '../dvd-service.service';
-import { HttpClient } from '@angular/common/http';
+import {DvdGetAllDTO, DvdServiceService } from '../dvd-service.service';
 
-export interface Dvd {
-  name: String,
-  type: TypeEnum,
-  quantity: number,
-  price: bigint,
-  description: String,
-  image: String;
-}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
+
 export class HomeComponent implements OnInit {
-dvds : Array<Dvd>  = [] 
-dvdToShow : Array<Dvd> = []
-typeFilter: string = ''
-data : Array<Dvd>  = [] 
+
+dvds : Array<DvdGetAllDTO>  = [] 
+dvdToShow : Array<DvdGetAllDTO> = []
+
+
+constructor(private dvdServiceService: DvdServiceService){}
+
+resetFilter  = () => {
+  this.dvdToShow = this.dvds
+}
+getQuantityText(quantity: number): string {
+  return quantity === 0 ? 'Out of Stock' : quantity.toString();
+}
 
 
 handleTypeClickButton = (type: string) => {
@@ -29,34 +30,34 @@ handleTypeClickButton = (type: string) => {
       return value.type === type
     })
   }
+filterByPrice = () => {
+  this.dvdToShow = this.dvds.filter((dvd) => {
+    return dvd.price < 10;
+  })
+};
+filterByPriceRange = (minPrice: number, maxPrice: number) => {
+  this.dvdToShow = this.dvds.filter((dvd) => {
+    return dvd.price >= minPrice && dvd.price <= maxPrice;
+  })
+};
+filterByPriceAbove = (minPrice: number) => {
+  this.dvdToShow = this.dvds.filter((dvd) => {
+    return dvd.price > minPrice;
+  })
+};
 
 
-constructor(private http: HttpClient, public dvdServiceService: DvdServiceService){}
+
 
 
 ngOnInit(): void {
-    this.http.get<any>('http://localhost:8080/dvdStore').subscribe({
-      next: (data) => {
-        this.data = data;
-        for (const x of this.data) {
-          const dvd: Dvd = {
-            name: x.name,
-            type: x.type,
-            quantity: x.quantity,
-            price: x.price,
-            description: x.description,
-            image: x.image
-          };
-          this.dvds.push(dvd);
-        }
-      },
-      error: error => {
-        console.log("Lerreur est ICI", error);
-      }
-    })
-    this.dvdToShow = this.dvds
-  }  
+  this.dvdServiceService.getAllAxios()
+  .then((data) => {
+  this.dvds = data;
+  this.dvdToShow = this.dvds
+  }) 
 }
 
+}
 
 

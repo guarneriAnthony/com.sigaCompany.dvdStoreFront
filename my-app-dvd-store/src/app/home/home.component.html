@@ -1,18 +1,67 @@
 <main>
+    <h2 class="text-center mt-5" (click)="resetFilter()">All Dvd</h2>
+    <nav class="navbar d-flex  custom-nav-width justify-content-center mx-auto mt-5">
+        <div class="dropdown">
+            <button class="btn btn-secondary marginRL text-primary bg-light border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Type
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('kids')">kids</a></li>
+              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('adulte')">Adulte</a></li>
+              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('mix')">Mix</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary marginRL text-primary bg-light border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Best Sales
+            </button>
+            <ul class="dropdown-menu" *ngFor="let dvd of dvdToShow; let index = index">
+              <li><a class="dropdown-item text-center text-primary">{{dvd.name}}</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-secondary marginRL text-primary bg-light border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Price
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item text-center text-primary" (click)="filterByPrice()"> Under 10$</a></li>
+              <li><a class="dropdown-item text-center text-primary" (click)="filterByPriceRange(10,30)"> 10$ - 30$</a></li>
+              <li><a class="dropdown-item text-center text-primary" (click)="filterByPriceAbove(30)"> +30$</a></li>
+            </ul>
+          </div>
+    </nav>
+
+    <div class="container">
+      <div class="row d-flex justify-content-center ">
+        <div class="col-md-3 " *ngFor="let dvd of dvdToShow; let index = index">
+          <div class="card mx-auto p-5 shadow card-home" style="width: 18rem;">
+            <img src="../assets/{{dvd.name}}.png"  alt="image dvd">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{dvd.name}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <p>Type : {{dvd.type}}</p>
+              </li>
+              <li class="list-group-item text-primary">
+                <p>Price : {{dvd.price}} €</p>
+              </li>
+              <li class="list-group-item text-end">
+                <p>Quantity : {{getQuantityText(dvd.quantity)}}</p>
+              </li>
+              {{dvd.id}}
+              <a [routerLink]="['/dvd-detail', dvd.id]">Show product</a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-<button class="nav-link" (click)="handleTypeClickButton('kids')">kids</button>
-<button class="nav-link" (click)="handleTypeClickButton('adulte')">Adulte</button>
-<button class="nav-link" (click)="handleTypeClickButton('mix')">Mix</button>
 
 
-<div class="movie-card card m-3 " *ngFor="let dvd of dvdToShow; let index = index">
-    <a [href]="'/dvds/'+index"></a>
-    <h2>{{dvd.name}}</h2>
-    <h3>{{dvd.type}}</h3>
-    <h3>{{dvd.quantity}}</h3>
-</div>
+
+
 </main>
 
 
-  

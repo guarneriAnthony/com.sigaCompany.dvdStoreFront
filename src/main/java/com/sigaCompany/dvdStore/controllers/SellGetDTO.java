@@ -2,17 +2,19 @@ package com.sigaCompany.dvdStore.controllers;
 
 import com.sigaCompany.dvdStore.entities.ClientEntity;
 import com.sigaCompany.dvdStore.entities.DvdEntity;
+import com.sigaCompany.dvdStore.services.SellServiceModel;
 import lombok.Data;
 
 @Data
 public class SellGetDTO {
+    private long id;
     private ClientEntity client;
     private DvdEntity dvd;
     private int quantity;
-
-    public SellGetDTO(ClientEntity client, DvdEntity dvd, int quantity) {
-        this.client = client;
-        this.dvd = dvd;
-        this.quantity = quantity;
+    public SellGetDTO(SellServiceModel sellServiceModel) {
+        this.id = sellServiceModel.getId();
+        this.client = sellServiceModel.getClient();
+        this.dvd = sellServiceModel.getDvd();
+        this.quantity = sellServiceModel.getQuantity();
     }
 }

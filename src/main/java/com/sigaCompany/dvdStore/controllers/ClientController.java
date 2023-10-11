@@ -1,5 +1,6 @@
 package com.sigaCompany.dvdStore.controllers;
 
+import com.sigaCompany.dvdStore.dto.ClientDTO;
 import com.sigaCompany.dvdStore.services.ClientService;
 import com.sigaCompany.dvdStore.services.ClientServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "client")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
+
 public class ClientController {
     @Autowired
     ClientService clientService;
@@ -23,7 +26,7 @@ public class ClientController {
     // Add new Client
     @PostMapping
     public boolean addClient(@RequestBody ClientDTO clientDTO) {
-        ClientServiceModel clientServiceModel = new ClientServiceModel(clientDTO.name(), clientDTO.email());
+        ClientServiceModel clientServiceModel = new ClientServiceModel(clientDTO);
         return clientService.add(clientServiceModel);
     }
 
@@ -33,7 +36,7 @@ public class ClientController {
         List<ClientServiceModel> clientServiceModels = clientService.findAll();
         List<ClientDTO> clientDTOS = new ArrayList<>();
         for (ClientServiceModel client : clientServiceModels) {
-            clientDTOS.add(new ClientDTO(client.getName(), client.getEmail()));
+            clientDTOS.add(new ClientDTO(client.getId(), client.getName(), client.getEmail()));
         }
         return clientDTOS;
     }
@@ -42,7 +45,7 @@ public class ClientController {
     @GetMapping("{id}")
     public ResponseEntity<ClientDTO> findById(@PathVariable long id){
         ClientServiceModel client = clientService.finById(id);
-        ClientDTO clientDTO = new ClientDTO(client.getName(),client.getEmail());
+        ClientDTO clientDTO = new ClientDTO(client.getId(), client.getName(),client.getEmail());
         return new ResponseEntity<>(clientDTO, HttpStatus.OK);
     }
 
@@ -52,7 +55,7 @@ public class ClientController {
         List<ClientServiceModel> clientServiceModels = clientService.findByName(name);
         List<ClientDTO> clientDTOS = new ArrayList<>();
         for (ClientServiceModel clientServiceModel : clientServiceModels){
-            clientDTOS.add(new ClientDTO(clientServiceModel.getName(), clientServiceModel.getEmail()));
+            clientDTOS.add(new ClientDTO(clientServiceModel.getId(), clientServiceModel.getName(), clientServiceModel.getEmail()));
         }
         return new ResponseEntity<>(clientDTOS, HttpStatus.OK);
     }
@@ -62,7 +65,7 @@ public class ClientController {
         List<ClientServiceModel> clientServiceModels = clientService.findByEmail(email);
         List<ClientDTO> clientDTOS = new ArrayList<>();
         for (ClientServiceModel clientServiceModel : clientServiceModels){
-            clientDTOS.add(new ClientDTO(clientServiceModel.getName(), clientServiceModel.getEmail()));
+            clientDTOS.add(new ClientDTO(clientServiceModel.getId(), clientServiceModel.getName(), clientServiceModel.getEmail()));
         }
         return new ResponseEntity<>(clientDTOS, HttpStatus.OK);
     }

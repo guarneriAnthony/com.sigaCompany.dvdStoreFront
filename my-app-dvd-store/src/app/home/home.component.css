@@ -1,0 +1,12 @@
+.marginRL {
+    margin: auto 5vw auto 5vw;
+}
+.custom-nav-width{
+    width: 55vw;
+    border: 2px solid blue;
+    border-radius: 20px;
+}
+.card-home{
+    margin-top: 7vh;
+    margin-bottom: 5vh;
+}
