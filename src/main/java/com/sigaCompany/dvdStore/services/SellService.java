@@ -9,22 +9,42 @@ import com.sigaCompany.dvdStore.repositories.SellRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
+
+/**
+ * The type Sell service.
+ */
 @Service
 public class SellService {
+    /**
+     * The Sell repository.
+     */
     @Autowired
     SellRepository sellRepository;
 
+    /**
+     * The Client repository.
+     */
     @Autowired
     ClientRepository clientRepository;
 
+    /**
+     * The Dvd repository.
+     */
     @Autowired
     DvdRepository dvdRepository;
 
 
+    /**
+     * Save.
+     *
+     * @param sellServiceModel the sell service model
+     */
     public void save(SellServiceModel sellServiceModel) {
-        long clientID = sellServiceModel.getClient().getId();
-        long dvdID = sellServiceModel.getDvd().getId();
+        long clientID = sellServiceModel.getClientId();
+        long dvdID = sellServiceModel.getDvdId();
         int quantity = sellServiceModel.getQuantity();
 
         ClientEntity clientEntity = clientRepository.findById(clientID);
@@ -34,18 +54,29 @@ public class SellService {
         sellRepository.save(sellEntity);
     }
 
+    /**
+     * Find by id sell service model.
+     *
+     * @param id the id
+     * @return the sell service model
+     */
     public SellServiceModel findById(long id) {
         SellEntity sellEntity = sellRepository.findById(id);
-        return new SellServiceModel(sellEntity.getClientEntity(), sellEntity.getDvdEntity(), sellEntity.getQuantity());
+        return new SellServiceModel(sellEntity);
     }
 
 
-//    public List<SellServiceModel> findAll() {
-//        List<SellEntity> sellEntities = sellRepository.findAll();
-//        List<SellServiceModel> sellServiceModels = new ArrayList<>();
-//        for (SellEntity sell : sellEntities){
-//            sellServiceModels.add(new SellServiceModel(sell.getId(), sell.getQuantity(), sell.getQuantity()));
-//        }
-//        return sellServiceModels;
-//    }
+    /**
+     * Find all list.
+     *
+     * @return the list
+     */
+    public List<SellServiceModel> findAll() {
+       List<SellEntity> sellEntities = sellRepository.findAll();
+       List<SellServiceModel> sellServiceModels = new ArrayList<>();
+        for (SellEntity sell : sellEntities){
+          sellServiceModels.add(new SellServiceModel(sell));
+        }
+       return sellServiceModels;
+   }
 }

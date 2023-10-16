@@ -1,4 +1,4 @@
 package com.sigaCompany.dvdStore.controllers;
 
-public record ClientDTO(String name, String email) {
+public record ClientDTO(long id,String name, String email) {
 }

@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row d-flex justify-content-center ">
+      <div class="col-md-3 " *ngFor="let client of clients; let index = index">
+        <div class="card mx-auto p-5 shadow card-home" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{client.name}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p>Email : {{client.email}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
