@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="50f66c90-adca-4769-978d-2c25a4eb741a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/ClientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/ClientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/DvdDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/DvdDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/SellDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/SellDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/SellGetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dvdStore/src/main/java/com/sigaCompany/dvdStore/controllers/SellGetDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dvdStore/src/test/java/com/sigaCompany/dvdStore/DvdStoreApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dvdStore/src/test/java/com/sigaCompany/dvdStore/DvdStoreApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/dvdStore" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="workOffline" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2VWmrOZLLsmSd9WAxa5E3TwHQqO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/exesiga/log secu&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/exesiga/log secu/basketDvdStore/src/main/java/fr/laCorp/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.sigaCompany.dvdStore.services" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/basketDvdStore/src/main/resources" />
+      <recent name="$PROJECT_DIR$/basketMS/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dvdStore/src/main/resources/imgs" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sigaCompany.dvdStore.controllers" />
+      <recent name="com.sigaCompany.dvdStore.services" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="DvdStoreApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sigaCompany.dvdStore.DvdStoreApplication" />
+      <module name="dvdStore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigaCompany.dvdStore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50f66c90-adca-4769-978d-2c25a4eb741a" name="Changes" comment="" />
+      <created>1694960408994</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694960408994</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.jdbc.BadSqlGrammarException" package="org.springframework.jdbc" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.BindException" package="java.net" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/log_secu$DvdStoreApplication.ic" NAME="DvdStoreApplication Coverage Results" MODIFIED="1696586565227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.sigaCompany.dvdStore.*</FILTER>
+    </SUITE>
+  </component>
+</project>
