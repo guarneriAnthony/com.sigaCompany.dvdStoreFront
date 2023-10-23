@@ -37,6 +37,12 @@ public class BasketDvdController {
         return basketMapper.basketDvdServiceModelToBasketDvdDto(basketDvdService.findById(id));
     }
 
+    @GetMapping("/basket/{id}")
+    public List<BasketDvdDto> findAllByBasketId(@PathVariable int id) {
+        List<BasketDvdServiceModel> basketDvdServiceModels = basketDvdService.findAllByBasketId(id);
+        return basketMapper.listBasketDvdServiceModelToBasketDvdDto(basketDvdServiceModels);
+    }
+
     @PutMapping("/{id}")
     public BasketDvdDto update(@PathVariable int id, @RequestBody BasketDvdDto basketDvdDto) {
         BasketDvdServiceModel basketDvdServiceModel = basketMapper.basketDvdDtoToBasketDvdServiceModel(basketDvdDto);

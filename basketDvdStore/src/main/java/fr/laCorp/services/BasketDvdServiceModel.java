@@ -1,5 +1,6 @@
 package fr.laCorp.services;
 
+import fr.laCorp.repositories.BasketRepositoryModel;
 import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -13,8 +14,11 @@ public class BasketDvdRepositoryModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "id_basket")
-    private int idBasket;
+      @ManyToOne
+      @JoinColumn(name = "id_basket")
+      private BasketRepositoryModel basketId;
+
+
     @Column(name = "id_dvd")
     private int idDvd;
     @Column

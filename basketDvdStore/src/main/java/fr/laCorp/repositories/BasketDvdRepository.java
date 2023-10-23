@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BasketDvdRepository extends CrudRepository<BasketDvdRepositoryModel, Integer> {
 
+    Iterable<BasketDvdRepositoryModel> findAllByBasketId(BasketRepositoryModel basketRepositoryModel);
 }

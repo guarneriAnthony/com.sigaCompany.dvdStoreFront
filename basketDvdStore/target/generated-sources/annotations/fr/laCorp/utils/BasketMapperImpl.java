@@ -3,6 +3,7 @@ package fr.laCorp.utils;
 import fr.laCorp.dtos.BasketDto;
 import fr.laCorp.dtos.BasketDvdDto;
 import fr.laCorp.repositories.BasketDvdRepositoryModel;
+import fr.laCorp.repositories.BasketRepositoryModel;
 import fr.laCorp.services.BasketDvdServiceModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-20T12:07:30+0200",
+    date = "2023-10-23T12:58:33+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.9 (Amazon.com Inc.)"
 )
 public class BasketMapperImpl implements BasketMapper {
@@ -24,7 +25,6 @@ public class BasketMapperImpl implements BasketMapper {
         BasketDvdServiceModel basketDvdServiceModel = new BasketDvdServiceModel();
 
         basketDvdServiceModel.setId( basketDvdRepositoryModel.getId() );
-        basketDvdServiceModel.setIdBasket( basketDvdRepositoryModel.getIdBasket() );
         basketDvdServiceModel.setIdDvd( basketDvdRepositoryModel.getIdDvd() );
         basketDvdServiceModel.setQuantity( basketDvdRepositoryModel.getQuantity() );
         basketDvdServiceModel.setPrice( basketDvdRepositoryModel.getPrice() );
@@ -99,7 +99,6 @@ public class BasketMapperImpl implements BasketMapper {
         BasketDvdRepositoryModel basketDvdRepositoryModel = new BasketDvdRepositoryModel();
 
         basketDvdRepositoryModel.setId( basketDvdServiceModel.getId() );
-        basketDvdRepositoryModel.setIdBasket( basketDvdServiceModel.getIdBasket() );
         basketDvdRepositoryModel.setIdDvd( basketDvdServiceModel.getIdDvd() );
         basketDvdRepositoryModel.setQuantity( basketDvdServiceModel.getQuantity() );
         basketDvdRepositoryModel.setPrice( basketDvdServiceModel.getPrice() );
@@ -133,5 +132,45 @@ public class BasketMapperImpl implements BasketMapper {
         }
 
         return list;
+    }
+
+    @Override
+    public List<BasketRepositoryModel> iterableBasketRepositoryModelToListBasketDvdServiceModel(Iterable<BasketRepositoryModel> basketRepositoryModelIterable) {
+        if ( basketRepositoryModelIterable == null ) {
+            return null;
+        }
+
+        List<BasketRepositoryModel> list = new ArrayList<BasketRepositoryModel>();
+        for ( BasketRepositoryModel basketRepositoryModel : basketRepositoryModelIterable ) {
+            list.add( basketRepositoryModel );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<BasketDvdServiceModel> iterableBasketRepositoryModelToListBasketServiceModel(Iterable<BasketRepositoryModel> basketRepositoryModelIterable) {
+        if ( basketRepositoryModelIterable == null ) {
+            return null;
+        }
+
+        List<BasketDvdServiceModel> list = new ArrayList<BasketDvdServiceModel>();
+        for ( BasketRepositoryModel basketRepositoryModel : basketRepositoryModelIterable ) {
+            list.add( basketRepositoryModelToBasketDvdServiceModel( basketRepositoryModel ) );
+        }
+
+        return list;
+    }
+
+    protected BasketDvdServiceModel basketRepositoryModelToBasketDvdServiceModel(BasketRepositoryModel basketRepositoryModel) {
+        if ( basketRepositoryModel == null ) {
+            return null;
+        }
+
+        BasketDvdServiceModel basketDvdServiceModel = new BasketDvdServiceModel();
+
+        basketDvdServiceModel.setId( basketRepositoryModel.getId() );
+
+        return basketDvdServiceModel;
     }
 }
