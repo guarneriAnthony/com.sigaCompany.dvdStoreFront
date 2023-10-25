@@ -35,9 +35,14 @@ public class BasketDvdService {
     }
 
     public BasketDvdServiceModel update(int id, BasketDvdServiceModel basketDvdServiceModel) {
+
+
+
+
         Optional<BasketDvdRepositoryModel> optionalBasketDvdRepositoryModel = basketDvdRepository.findById(id);
         if (optionalBasketDvdRepositoryModel.isPresent()){
             BasketDvdRepositoryModel basketDvdRepositoryModel = basketMapper.basketDvdServiceModelToBasketDvdRepositoryModel(basketDvdServiceModel);
+            basketDvdRepositoryModel.setId(id);
             BasketDvdRepositoryModel saved = basketDvdRepository.save(basketDvdRepositoryModel);
             return basketMapper.basketDvdRepositoryModelToBasketDvdServiceModel(saved);
         } else {

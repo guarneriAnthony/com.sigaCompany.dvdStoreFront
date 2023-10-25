@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "basketDvd")
+@RequestMapping(path = "basket-dvd")
 public class BasketDvdController {
     @Autowired
     BasketDvdService basketDvdService;
 
     private final BasketMapper basketMapper = BasketMapper.INSTANCE;
-
 
     @PostMapping()
     public BasketDvdDto create(@RequestBody BasketDvdDto basketDvdDto) {

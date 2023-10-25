@@ -1,13 +1,12 @@
 package com.sigaCompany.dvdStore.controllers;
 
+import com.sigaCompany.dvdStore.apiV2.ApiDvdDto;
 import com.sigaCompany.dvdStore.dto.DvdDTO;
 import com.sigaCompany.dvdStore.services.DvdService;
 import com.sigaCompany.dvdStore.services.DvdServiceModel;
-import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
