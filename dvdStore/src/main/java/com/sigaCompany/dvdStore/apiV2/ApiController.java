@@ -12,15 +12,15 @@ public class ApiController {
     ApiService apiService;
 
     @GetMapping()
-    public List<ApiDvdDto> basketDvdFindAll() {
+    public List<ApiBasketDto> basketDvdFindAll() {
         return apiService.basketDvdFindAll();
     }
     @PostMapping()
-    public void basketDvdcreate(@RequestBody ApiDvdDto apiDvdDto) {
-        apiService.basketDvdcreate(apiDvdDto);
+    public void basketDvdcreate(@RequestBody ApiBasketDto apiBasketDto) {
+        apiService.basketDvdcreate(apiBasketDto);
     }
     @PutMapping("/{id}")
-    public void basketDvdupdate(@PathVariable int id, @RequestBody ApiDvdDto apiDvdDto) {
+    public void basketDvdupdate(@PathVariable int id, @RequestBody ApiBasketDto apiDvdDto) {
         apiService.basketDvdupdate(id,apiDvdDto);
     }
     @DeleteMapping("/{id}")

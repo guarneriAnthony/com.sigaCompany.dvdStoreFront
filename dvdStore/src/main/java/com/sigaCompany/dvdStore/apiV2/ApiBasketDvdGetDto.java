@@ -1,13 +1,11 @@
-package fr.laCorp.services;
+package com.sigaCompany.dvdStore.apiV2;
 
-import fr.laCorp.repositories.BasketRepositoryModel;
-import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class BasketDvdServiceModel {
+public class ApiBasketDvdGetDto {
     private int id;
     private int idDvd;
     private int quantity;

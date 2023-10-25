@@ -1,13 +1,11 @@
-package fr.laCorp.services;
+package fr.laCorp.dtos;
 
-import fr.laCorp.repositories.BasketRepositoryModel;
-import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class BasketDvdServiceModel {
+public class BasketDvdGetDto {
     private int id;
     private int idDvd;
     private int quantity;

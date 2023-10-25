@@ -12,20 +12,100 @@ import java.util.List;
 
 @Service
 public class BasketService {
+    private final BasketMapper basketMapper = BasketMapper.INSTANCE;
+    @Autowired
+    BasketRepository basketRepository;
     @Autowired
     BasketDvdRepository basketDvdRepository;
-    BasketRepository basketRepository;
-    private final BasketMapper basketMapper = BasketMapper.INSTANCE;
 
-
-    public BasketDvdServiceModel findById(int id) {
-        return basketMapper.basketDvdRepositoryModelToBasketDvdServiceModel(basketDvdRepository.findById(id).orElse(null));
+    public boolean createBasket(BasketServiceModel basketServiceModel) {
+        basketRepository.save(basketMapper.basketServiceModelTobasketRepositoryModel(basketServiceModel));
+        return true;
     }
 
-    public List<BasketDvdServiceModel> findAll() {
-        Iterable<BasketRepositoryModel> basketRepositoryModelIterable = basketRepository.findAll();
-        System.out.println(basketRepositoryModelIterable);
-        return basketMapper.iterableBasketRepositoryModelToListBasketServiceModel(basketRepositoryModelIterable);
+
+    public boolean createBasketDvd(int clientId, BasketDvdServiceModel basketDvdServiceModel) {
+        if (basketRepository.findByIdClient(clientId).isPresent()) {
+            basketDvdRepository.save(basketMapper.basketDvdServiceModelToBasketDvdRepositoryModel(basketDvdServiceModel, basketRepository.findByIdClient(clientId).get()));
+            return true;
+        } else {
+            return false;
+        }
     }
 
+
+    public List<BasketServiceModel> readAllBasket() {
+        Iterable<BasketRepositoryModel> baskets = basketRepository.findAll();
+        return basketMapper.iterableBasketRepositoryModelToListBasketServiceModel(baskets);
+    }
+
+
+    public BasketServiceModel readBasketByClientId(int clientId) {
+        BasketRepositoryModel basket = basketRepository.findByIdClient(clientId).orElse(null);
+        return basketMapper.basketRepositoryModelToBasketServiceModel(basket);
+    }
+
+
+    public boolean updateBasketByClientId(int clientId, BasketServiceModel basketServiceModel) {
+        if (basketRepository.findByIdClient(clientId).isPresent()) {
+            BasketRepositoryModel oldBasket = basketRepository.findByIdClient(clientId).get();
+            BasketRepositoryModel newBasket = basketMapper.basketServiceModelTobasketRepositoryModel(basketServiceModel);
+            newBasket.setId(oldBasket.getId());
+            basketRepository.save(newBasket);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+    public boolean updateBasketDvdById(int clientId, int id, BasketDvdServiceModel basketDvdServiceModel) {
+        if (basketRepository.findByIdClient(clientId).isPresent()) {
+            BasketRepositoryModel basket = basketRepository.findByIdClient(clientId).get();
+            if (basketDvdRepository.findById(id).isPresent()) {
+                BasketDvdRepositoryModel oldBasketDvd = basketDvdRepository.findById(id).get();
+                BasketDvdRepositoryModel newBasketDvd = basketMapper.basketDvdServiceModelToBasketDvdRepositoryModel(basketDvdServiceModel, basket);
+                newBasketDvd.setId(oldBasketDvd.getId());
+                basketDvdRepository.save(newBasketDvd);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+
+    public boolean deleteBasketByClientId(int clientId) {
+        basketRepository.deleteByIdClient(clientId);
+        return true;
+    }
+
+    public boolean deleteBasketDvdById(int clientId, int id) {
+        if (basketRepository.findByIdClient(clientId).isPresent()) {
+            basketDvdRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+    public boolean deleteAllBasketDvdByClientId(int clientId) {
+        if (basketRepository.findByIdClient(clientId).isPresent()) {
+            basketDvdRepository.deleteAllByBasketId(basketRepository.findByIdClient(clientId).get());
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+    public List<BasketDvdServiceModel> readAllBasketDvdByClientId(int clientId) {
+        return basketMapper.iterableBasketDvdRepositoryModelToListBasketDvdServiceModel(basketDvdRepository.findAllByBasketId(basketRepository.findByIdClient(clientId).get()));
+    }
 }

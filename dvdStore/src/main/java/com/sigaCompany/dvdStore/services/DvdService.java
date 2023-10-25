@@ -1,9 +1,7 @@
 package com.sigaCompany.dvdStore.services;
 
-import com.sigaCompany.dvdStore.apiV2.ApiDvdDto;
 import com.sigaCompany.dvdStore.dto.DvdDTO;
 import com.sigaCompany.dvdStore.entities.DvdEntity;
-import com.sigaCompany.dvdStore.feign.MyClientFeign;
 import com.sigaCompany.dvdStore.repositories.DvdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,19 +2,52 @@ package fr.laCorp.utils;
 
 import fr.laCorp.dtos.BasketDto;
 import fr.laCorp.dtos.BasketDvdDto;
+import fr.laCorp.dtos.BasketDvdGetDto;
+import fr.laCorp.dtos.BasketGetDto;
 import fr.laCorp.repositories.BasketDvdRepositoryModel;
 import fr.laCorp.repositories.BasketRepositoryModel;
 import fr.laCorp.services.BasketDvdServiceModel;
+import fr.laCorp.services.BasketServiceModel;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-24T10:51:45+0200",
+    date = "2023-10-25T16:26:31+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.9 (Amazon.com Inc.)"
 )
 public class BasketMapperImpl implements BasketMapper {
+
+    @Override
+    public BasketDvdServiceModel basketDvdDtoToBasketDvdServiceModel(BasketDvdDto basketDvdDto) {
+        if ( basketDvdDto == null ) {
+            return null;
+        }
+
+        BasketDvdServiceModel basketDvdServiceModel = new BasketDvdServiceModel();
+
+        basketDvdServiceModel.setIdDvd( basketDvdDto.idDvd() );
+        basketDvdServiceModel.setQuantity( basketDvdDto.quantity() );
+        basketDvdServiceModel.setPrice( basketDvdDto.price() );
+
+        return basketDvdServiceModel;
+    }
+
+    @Override
+    public BasketRepositoryModel basketServiceModelTobasketRepositoryModel(BasketServiceModel basketServiceModel) {
+        if ( basketServiceModel == null ) {
+            return null;
+        }
+
+        BasketRepositoryModel basketRepositoryModel = new BasketRepositoryModel();
+
+        basketRepositoryModel.setId( basketServiceModel.getId() );
+        basketRepositoryModel.setIdClient( basketServiceModel.getIdClient() );
+        basketRepositoryModel.setTotalPrice( basketServiceModel.getTotalPrice() );
+
+        return basketRepositoryModel;
+    }
 
     @Override
     public BasketDvdServiceModel basketDvdRepositoryModelToBasketDvdServiceModel(BasketDvdRepositoryModel basketDvdRepositoryModel) {
@@ -38,19 +71,15 @@ public class BasketMapperImpl implements BasketMapper {
             return null;
         }
 
-        int id = 0;
-        int idBasket = 0;
         int idDvd = 0;
         int quantity = 0;
         float price = 0.0f;
 
-        id = byId.getId();
-        idBasket = byId.getIdBasket();
         idDvd = byId.getIdDvd();
         quantity = byId.getQuantity();
         price = byId.getPrice();
 
-        BasketDvdDto basketDvdDto = new BasketDvdDto( id, idBasket, idDvd, quantity, price );
+        BasketDvdDto basketDvdDto = new BasketDvdDto( idDvd, quantity, price );
 
         return basketDvdDto;
     }
@@ -61,47 +90,27 @@ public class BasketMapperImpl implements BasketMapper {
             return null;
         }
 
-        int id = 0;
-
-        id = byId.getId();
-
         int idClient = 0;
-        float totalPrice = 0.0f;
 
-        BasketDto basketDto = new BasketDto( id, idClient, totalPrice );
+        BasketDto basketDto = new BasketDto( idClient );
 
         return basketDto;
     }
 
     @Override
-    public BasketDvdServiceModel basketDvdDtoToBasketDvdServiceModel(BasketDvdDto basketDvdDto) {
-        if ( basketDvdDto == null ) {
-            return null;
-        }
-
-        BasketDvdServiceModel basketDvdServiceModel = new BasketDvdServiceModel();
-
-        basketDvdServiceModel.setId( basketDvdDto.id() );
-        basketDvdServiceModel.setIdBasket( basketDvdDto.idBasket() );
-        basketDvdServiceModel.setIdDvd( basketDvdDto.idDvd() );
-        basketDvdServiceModel.setQuantity( basketDvdDto.quantity() );
-        basketDvdServiceModel.setPrice( basketDvdDto.price() );
-
-        return basketDvdServiceModel;
-    }
-
-    @Override
-    public BasketDvdRepositoryModel basketDvdServiceModelToBasketDvdRepositoryModel(BasketDvdServiceModel basketDvdServiceModel) {
-        if ( basketDvdServiceModel == null ) {
+    public BasketDvdRepositoryModel basketDvdServiceModelToBasketDvdRepositoryModel(BasketDvdServiceModel basketDvdServiceModel, BasketRepositoryModel basket) {
+        if ( basketDvdServiceModel == null && basket == null ) {
             return null;
         }
 
         BasketDvdRepositoryModel basketDvdRepositoryModel = new BasketDvdRepositoryModel();
 
-        basketDvdRepositoryModel.setId( basketDvdServiceModel.getId() );
-        basketDvdRepositoryModel.setIdDvd( basketDvdServiceModel.getIdDvd() );
-        basketDvdRepositoryModel.setQuantity( basketDvdServiceModel.getQuantity() );
-        basketDvdRepositoryModel.setPrice( basketDvdServiceModel.getPrice() );
+        if ( basketDvdServiceModel != null ) {
+            basketDvdRepositoryModel.setIdDvd( basketDvdServiceModel.getIdDvd() );
+            basketDvdRepositoryModel.setQuantity( basketDvdServiceModel.getQuantity() );
+            basketDvdRepositoryModel.setPrice( basketDvdServiceModel.getPrice() );
+        }
+        basketDvdRepositoryModel.setBasketId( basket );
 
         return basketDvdRepositoryModel;
     }
@@ -135,42 +144,122 @@ public class BasketMapperImpl implements BasketMapper {
     }
 
     @Override
-    public List<BasketRepositoryModel> iterableBasketRepositoryModelToListBasketDvdServiceModel(Iterable<BasketRepositoryModel> basketRepositoryModelIterable) {
+    public List<BasketServiceModel> iterableBasketRepositoryModelToListBasketServiceModel(Iterable<BasketRepositoryModel> basketRepositoryModelIterable) {
         if ( basketRepositoryModelIterable == null ) {
             return null;
         }
 
-        List<BasketRepositoryModel> list = new ArrayList<BasketRepositoryModel>();
+        List<BasketServiceModel> list = new ArrayList<BasketServiceModel>();
         for ( BasketRepositoryModel basketRepositoryModel : basketRepositoryModelIterable ) {
-            list.add( basketRepositoryModel );
+            list.add( basketRepositoryModelToBasketServiceModel( basketRepositoryModel ) );
         }
 
         return list;
     }
 
     @Override
-    public List<BasketDvdServiceModel> iterableBasketRepositoryModelToListBasketServiceModel(Iterable<BasketRepositoryModel> basketRepositoryModelIterable) {
-        if ( basketRepositoryModelIterable == null ) {
+    public BasketServiceModel basketDtoToBasketServiceModel(BasketDto basketDto) {
+        if ( basketDto == null ) {
             return null;
         }
 
-        List<BasketDvdServiceModel> list = new ArrayList<BasketDvdServiceModel>();
-        for ( BasketRepositoryModel basketRepositoryModel : basketRepositoryModelIterable ) {
-            list.add( basketRepositoryModelToBasketDvdServiceModel( basketRepositoryModel ) );
+        BasketServiceModel basketServiceModel = new BasketServiceModel();
+
+        basketServiceModel.setIdClient( basketDto.idClient() );
+
+        return basketServiceModel;
+    }
+
+    @Override
+    public List<BasketGetDto> listBasketServiceModelToBasketGetDto(List<BasketServiceModel> basketServiceModels) {
+        if ( basketServiceModels == null ) {
+            return null;
+        }
+
+        List<BasketGetDto> list = new ArrayList<BasketGetDto>( basketServiceModels.size() );
+        for ( BasketServiceModel basketServiceModel : basketServiceModels ) {
+            list.add( basketServiceModelToBasketGetDto( basketServiceModel ) );
         }
 
         return list;
     }
 
-    protected BasketDvdServiceModel basketRepositoryModelToBasketDvdServiceModel(BasketRepositoryModel basketRepositoryModel) {
-        if ( basketRepositoryModel == null ) {
+    @Override
+    public BasketServiceModel basketRepositoryModelToBasketServiceModel(BasketRepositoryModel basket) {
+        if ( basket == null ) {
             return null;
         }
 
-        BasketDvdServiceModel basketDvdServiceModel = new BasketDvdServiceModel();
+        BasketServiceModel basketServiceModel = new BasketServiceModel();
 
-        basketDvdServiceModel.setId( basketRepositoryModel.getId() );
+        basketServiceModel.setId( basket.getId() );
+        basketServiceModel.setIdClient( basket.getIdClient() );
+        basketServiceModel.setTotalPrice( basket.getTotalPrice() );
 
-        return basketDvdServiceModel;
+        return basketServiceModel;
+    }
+
+    @Override
+    public BasketGetDto BasketServiceModelToBasketGetDto(BasketServiceModel basketServiceModel, List<BasketDvdGetDto> basketDvdGetDtoList) {
+        if ( basketServiceModel == null && basketDvdGetDtoList == null ) {
+            return null;
+        }
+
+        BasketGetDto basketGetDto = new BasketGetDto();
+
+        if ( basketServiceModel != null ) {
+            basketGetDto.setId( basketServiceModel.getId() );
+            basketGetDto.setIdClient( basketServiceModel.getIdClient() );
+            basketGetDto.setTotalPrice( basketServiceModel.getTotalPrice() );
+        }
+        List<BasketDvdGetDto> list = basketDvdGetDtoList;
+        if ( list != null ) {
+            basketGetDto.setBasketDvdGetDtoList( new ArrayList<BasketDvdGetDto>( list ) );
+        }
+
+        return basketGetDto;
+    }
+
+    @Override
+    public List<BasketDvdGetDto> listBasketDvdServiceModelToBasketDvdGetDto(List<BasketDvdServiceModel> basketDvdServiceModels) {
+        if ( basketDvdServiceModels == null ) {
+            return null;
+        }
+
+        List<BasketDvdGetDto> list = new ArrayList<BasketDvdGetDto>( basketDvdServiceModels.size() );
+        for ( BasketDvdServiceModel basketDvdServiceModel : basketDvdServiceModels ) {
+            list.add( basketDvdServiceModelToBasketDvdGetDto( basketDvdServiceModel ) );
+        }
+
+        return list;
+    }
+
+    protected BasketGetDto basketServiceModelToBasketGetDto(BasketServiceModel basketServiceModel) {
+        if ( basketServiceModel == null ) {
+            return null;
+        }
+
+        BasketGetDto basketGetDto = new BasketGetDto();
+
+        basketGetDto.setId( basketServiceModel.getId() );
+        basketGetDto.setIdClient( basketServiceModel.getIdClient() );
+        basketGetDto.setTotalPrice( basketServiceModel.getTotalPrice() );
+
+        return basketGetDto;
+    }
+
+    protected BasketDvdGetDto basketDvdServiceModelToBasketDvdGetDto(BasketDvdServiceModel basketDvdServiceModel) {
+        if ( basketDvdServiceModel == null ) {
+            return null;
+        }
+
+        BasketDvdGetDto basketDvdGetDto = new BasketDvdGetDto();
+
+        basketDvdGetDto.setId( basketDvdServiceModel.getId() );
+        basketDvdGetDto.setIdDvd( basketDvdServiceModel.getIdDvd() );
+        basketDvdGetDto.setQuantity( basketDvdServiceModel.getQuantity() );
+        basketDvdGetDto.setPrice( basketDvdServiceModel.getPrice() );
+
+        return basketDvdGetDto;
     }
 }

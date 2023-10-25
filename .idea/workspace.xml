@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="50f66c90-adca-4769-978d-2c25a4eb741a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/BasketApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/BasketApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketDvdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketDvdController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdService.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketDvdController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDvdDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDvdDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketDvdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketDvdRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketServiceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/utils/BasketMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/utils/BasketMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/BasketApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/controllers/BasketController.class" beforeDir="false" />
@@ -36,8 +44,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Record" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -66,26 +74,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Feat/add__basket__crud",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/home/exesiga/Documents/com.sigaCompany.dvdStoreFront/dvdStore/.mvn/wrapper/maven-wrapper.jar",
-    "onboarding.tips.debug.path": "/home/exesiga/log secu/basketDvdStore/src/main/java/fr/laCorp/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Feat/add__basket__crud&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/exesiga/Documents/com.sigaCompany.dvdStoreFront/dvdStore/.mvn/wrapper/maven-wrapper.jar&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/exesiga/log secu/basketDvdStore/src/main/java/fr/laCorp/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.sigaCompany.dvdStore" />

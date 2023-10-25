@@ -15,7 +15,7 @@ import java.util.List;
  * The type Client controller.
  */
 @RestController
-@RequestMapping(path = "client")
+@RequestMapping(path = "clients")
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 
 public class ClientController {
@@ -128,4 +128,8 @@ public class ClientController {
     public void deleteById(@PathVariable long id) {
         clientService.deleteById(id);
     }
+
+
+
+
 }
