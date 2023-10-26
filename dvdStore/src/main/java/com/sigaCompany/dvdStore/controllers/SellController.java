@@ -12,37 +12,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The type Sell controller.
- */
 @RestController
 @RequestMapping("selling")
 public class SellController {
-    /**
-     * The Sell service.
-     */
     @Autowired
     SellService sellService;
 
-    /**
-     * Create sale.
-     *
-     * @param sellDTO the sell dto
-     */
     @PostMapping
     public void createSale(@RequestBody SellDTO sellDTO) {
         sellService.save(new SellServiceModel(sellDTO));
     }
 
-    /**
-     * Find by id response entity.
-     *
-     * @param id the id
-     * @return the response entity
-     */
-// Find all infortation from one sale
+    // Find all infortation from one sale
     @GetMapping("{id}")
-    public ResponseEntity<SellDTO> findById(@PathVariable long id) {
+    public ResponseEntity<SellDTO> findById(@PathVariable int id) {
         SellServiceModel sellServiceModel = sellService.findById(id);
 
         if (sellServiceModel != null) {
@@ -53,11 +36,6 @@ public class SellController {
         }
     }
 
-    /**
-     * Find all list.
-     *
-     * @return the list
-     */
     @GetMapping
     public List<SellGetDTO> findAll(){
         List<SellServiceModel> sellServiceModels = sellService.findAll();

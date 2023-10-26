@@ -80,6 +80,7 @@ public class BasketService {
 
     public boolean deleteBasketByClientId(int clientId) {
         basketRepository.deleteByIdClient(clientId);
+        deleteAllBasketDvdByClientId(clientId);
         return true;
     }
 

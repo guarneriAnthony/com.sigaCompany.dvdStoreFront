@@ -16,18 +16,7 @@ public ApiService(MyClientFeign myClientFeign){
     this.myClientFeign = myClientFeign;
 }
 
-    public void basketDvdcreate(ApiBasketDto apiBasketDto) {
-        myClientFeign.basketDvdcreate(apiBasketDto);
-    }
-    public List<ApiBasketDto> basketDvdFindAll() {
-    return myClientFeign.basketDvdFindAll();
-    }
-    public void basketDvdupdate(int id, ApiBasketDto apiDvdDto) {
-        myClientFeign.basketDvdupdate(id,apiDvdDto);
-    }
 
 
-    public void basketDvddelete(int id) {
-        myClientFeign.basketDvddelete(id);
-    }
+
 }

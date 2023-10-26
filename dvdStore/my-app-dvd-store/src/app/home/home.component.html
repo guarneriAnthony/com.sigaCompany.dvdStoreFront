@@ -6,9 +6,9 @@
               Type
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('kids')">kids</a></li>
-              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('adulte')">Adulte</a></li>
-              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('mix')">Mix</a></li>
+              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('Kid')">kid</a></li>
+              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('Adulte')">Adulte</a></li>
+              <li><a class="dropdown-item text-center text-primary" (click)="handleTypeClickButton('Mix')">Mix</a></li>
             </ul>
           </div>
           <div class="dropdown">
@@ -35,7 +35,7 @@
       <div class="row d-flex justify-content-center ">
         <div class="col-md-3 " *ngFor="let dvd of dvdToShow; let index = index">
           <div class="card mx-auto p-5 shadow card-home" style="width: 18rem;">
-            <img src="../assets/{{dvd.name}}.png"  alt="image dvd">
+            <img src="../assets/{{dvd.image}}.png"  alt="{{dvd.name}} jacket">
             <div class="card-body">
               <h5 class="card-title text-center">{{dvd.name}}</h5>
             </div>

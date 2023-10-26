@@ -9,9 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-/**
- * The type Dvd entity.
- */
 @NoArgsConstructor
 @Entity
 @Data
@@ -19,7 +16,7 @@ import java.util.Set;
 public class DvdEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     @OneToMany(mappedBy = "dvdEntity")
     private Set<SellEntity> sellEntities = new HashSet<>();
 
@@ -36,14 +33,6 @@ public class DvdEntity {
     @Column
     private String image;
 
-    /**
-     * Instantiates a new Dvd entity.
-     *
-     * @param name     the name
-     * @param type     the type
-     * @param quantity the quantity
-     * @param price    the price
-     */
     public DvdEntity(String name, String type, int quantity, int price) {
         this.name = name;
         this.type = type;
@@ -51,11 +40,6 @@ public class DvdEntity {
         this.price = price;
     }
 
-    /**
-     * Instantiates a new Dvd entity.
-     *
-     * @param dvd the dvd
-     */
     public DvdEntity (DvdServiceModel dvd){
         name = dvd.getName();
         type = dvd.getType();
@@ -65,16 +49,7 @@ public class DvdEntity {
         image = dvd.getImage();
     }
 
-    /**
-     * Instantiates a new Dvd entity.
-     *
-     * @param id       the id
-     * @param name     the name
-     * @param type     the type
-     * @param quantity the quantity
-     * @param price    the price
-     */
-    public DvdEntity(Long id, String name, String type, int quantity, int price) {
+    public DvdEntity(int id, String name, String type, int quantity, int price) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -82,13 +57,7 @@ public class DvdEntity {
         this.price = price;
     }
 
-    /**
-     * Instantiates a new Dvd entity.
-     *
-     * @param id  the id
-     * @param dvd the dvd
-     */
-    public DvdEntity (long id,DvdServiceModel dvd){
+    public DvdEntity (int id,DvdServiceModel dvd){
         this.id = id;
         name = dvd.getName();
         type = dvd.getType();
@@ -98,16 +67,6 @@ public class DvdEntity {
         image = dvd.getImage();
     }
 
-    /**
-     * Instantiates a new Dvd entity.
-     *
-     * @param name        the name
-     * @param type        the type
-     * @param quantity    the quantity
-     * @param price       the price
-     * @param description the description
-     * @param image       the image
-     */
     public DvdEntity(String name, String type, int quantity, int price, String description, String image) {
         this.name = name;
         this.type = type;

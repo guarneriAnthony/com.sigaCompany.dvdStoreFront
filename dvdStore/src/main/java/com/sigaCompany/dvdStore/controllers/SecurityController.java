@@ -19,21 +19,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * The type Security controller.
- */
 @RestController
 public class SecurityController {
     @Autowired
     private JwtUserService userService;
 
-    /**
-     * Register response entity.
-     *
-     * @param dto the dto
-     * @return the response entity
-     * @throws AccountExistException the account exist exception
-     */
     @PostMapping("/register")
     public ResponseEntity<AuthResponseDto> register(@RequestBody AuthRequestDto dto) throws AccountExistException {
         UserDetails user = userService.save(dto.getUsername(), dto.getPassword());
@@ -41,13 +31,6 @@ public class SecurityController {
         return ResponseEntity.ok(new AuthResponseDto(user, token));
     }
 
-    /**
-     * Authorize response entity.
-     *
-     * @param requestDTO the request dto
-     * @return the response entity
-     * @throws UnauthorizedException the unauthorized exception
-     */
     @PostMapping("/authorize")
     public ResponseEntity<AuthResponseDto> authorize(@RequestBody AuthRequestDto requestDTO) throws UnauthorizedException {
         Authentication authentication = null;

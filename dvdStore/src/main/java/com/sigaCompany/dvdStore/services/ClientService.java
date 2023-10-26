@@ -9,36 +9,19 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The type Client service.
- */
 @Service
 public class ClientService {
-    /**
-     * The Client repository.
-     */
     @Autowired
     ClientRepository clientRepository;
 
-    /**
-     * Add boolean.
-     *
-     * @param clientServiceModel the client service model
-     * @return the boolean
-     */
-//Adds a new Client
-    public boolean add(ClientServiceModel clientServiceModel) {
+    //Adds a new Client
+    public ClientEntity add(ClientServiceModel clientServiceModel) {
         ClientEntity clientEntity = new ClientEntity(clientServiceModel.getName(), clientServiceModel.getEmail());
         ClientEntity object = clientRepository.save(clientEntity);
-        return object != null;
+        return object;
     }
 
-    /**
-     * Find all list.
-     *
-     * @return the list
-     */
-//Update an existing Client
+    //Update an existing Client
     public List<ClientServiceModel> findAll() {
         List<ClientEntity> clientEntities = clientRepository.findAll();
         List<ClientServiceModel> clientServiceModels = new ArrayList<>();
@@ -48,46 +31,23 @@ public class ClientService {
         return clientServiceModels;
     }
 
-    /**
-     * Update client.
-     *
-     * @param id        the id
-     * @param clientDTO the client dto
-     */
-//Update an existing Client
-    public void updateClient(long id, ClientDTO clientDTO) {
+    //Update an existing Client
+    public void updateClient(int id, ClientDTO clientDTO) {
         clientRepository.save(new ClientEntity(id, clientDTO.name(), clientDTO.email()));
     }
 
-    /**
-     * Delete by id.
-     *
-     * @param id the id
-     */
-//Deletes a client by its ID
-    public void deleteById(long id) {
+    //Deletes a client by its ID
+    public void deleteById(int id) {
         clientRepository.deleteById(id);
     }
 
-    /**
-     * Fin by id client service model.
-     *
-     * @param id the id
-     * @return the client service model
-     */
-// Find information from one Client, by id
-    public ClientServiceModel finById(long id) {
+    // Find information from one Client, by id
+    public ClientServiceModel findById(int id) {
         ClientEntity client = clientRepository.findById(id);
         return new ClientServiceModel(client);
     }
 
-    /**
-     * Find by name list.
-     *
-     * @param name the name
-     * @return the list
-     */
-// Find Client by Name
+    // Find Client by Name
     public List<ClientServiceModel> findByName(String name) {
         List<ClientEntity> clientEntities = clientRepository.findByName(name);
         List<ClientServiceModel> clientServiceModels = new ArrayList<>();
@@ -97,13 +57,7 @@ public class ClientService {
         return clientServiceModels;
     }
 
-    /**
-     * Find by email list.
-     *
-     * @param email the email
-     * @return the list
-     */
-// Find Client by Email
+    // Find Client by Email
     public List<ClientServiceModel> findByEmail(String email) {
         List<ClientEntity> clientEntities = clientRepository.findByEmail(email);
         List<ClientServiceModel> clientServiceModels = new ArrayList<>();
@@ -112,4 +66,6 @@ public class ClientService {
         }
         return clientServiceModels;
     }
+
+
 }

@@ -12,9 +12,14 @@ export interface DvdGetAllDTO {
   description: String,
   image: String;
 }
-export interface ClientGetAllDto {                                                               
+export interface ClientGetAllDto {
   name: String,
   email: String;
+}
+
+export interface Owner {
+  login: String
+  password: String
 }
 
 @Injectable({
@@ -22,7 +27,7 @@ export interface ClientGetAllDto {
 })
 export class DvdServiceService {
   private baseUrl = 'http://localhost:8080/dvdStore';
-  private baseUrlClient = 'http://localhost:8080/client';
+  private baseUrlClient = 'http://localhost:8080/clients';
 
   constructor() {}
 
@@ -31,17 +36,18 @@ export class DvdServiceService {
 
  getAllAxios = async() => {
     const response = await axios.get(this.baseUrl)
-    const dvds : DvdGetAllDTO[] = response.data.map((x: any)  => ({ 
+    const dvds : DvdGetAllDTO[] = response.data.map((x: any)  => ({
       id: x.id,
-      name: x.name, 
-      type: x.type, 
-      quantity: x.quantity, 
-      price: x.price, 
-      description: x.description, 
-      image: x.image 
+      name: x.name,
+      type: x.type,
+      quantity: x.quantity,
+      price: x.price,
+      description: x.description,
+      image: x.image
     }))
     return dvds;
- } 
+ }
+
 
 
  getByIdAxios = async(id: number) => {
@@ -54,42 +60,42 @@ export class DvdServiceService {
     const response = await axios.put(this.baseUrl + '/' + dvd.id, dvd)
     return response.data;
 }
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-  /*Les Clients sont ici pour le moment !! à mettre au propre dans un service dedié */ 
+  /*Les Clients sont ici pour le moment !! à mettre au propre dans un service dedié */
   getAllClientAxios = async() => {
     const response = await axios.get(this.baseUrlClient)
-    const clients : ClientGetAllDto[] = response.data.map((x: any)  => ({ 
-      name: x.name, 
-      email: x.email 
+    const clients : ClientGetAllDto[] = response.data.map((x: any)  => ({
+      name: x.name,
+      email: x.email
     }))
     return clients;
    }
   /*======*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

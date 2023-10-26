@@ -6,28 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="50f66c90-adca-4769-978d-2c25a4eb741a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/controllers/BasketDvdController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDvdDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/dtos/BasketDvdDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketDvdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketDvdRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/repositories/BasketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketDvdServiceModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketServiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketServiceModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/utils/BasketMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/utils/BasketMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/BasketApplication$WebConfig.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/BasketApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/controllers/BasketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/controllers/BasketDvdController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketDto.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketDvdDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketDvdGetDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketGetDto.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketDvdRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketDvdRepositoryModel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketRepositoryModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/services/BasketDvdService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/services/BasketDvdServiceModel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/services/BasketService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/services/BasketServiceModel.class" beforeDir="false" />
@@ -118,7 +109,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.BasketApplication">
+  <component name="RunManager" selected="Application.DvdStoreApplication">
     <configuration name="BasketApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.laCorp.BasketApplication" />
       <module name="basketDvdStore" />
@@ -162,6 +153,9 @@
     </task>
     <servers />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -176,6 +170,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.springframework.context.annotation.ConflictingBeanDefinitionException" package="org.springframework.context.annotation" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="4" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
