@@ -6,25 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="50f66c90-adca-4769-978d-2c25a4eb741a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/basketDvdStore/src/main/java/fr/laCorp/services/BasketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/BasketApplication$WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/BasketApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/controllers/BasketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketDvdDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketDvdGetDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/dtos/BasketGetDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketDvdRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketDvdRepositoryModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/repositories/BasketRepositoryModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/services/BasketDvdServiceModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/services/BasketService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/services/BasketServiceModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/utils/BasketMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/classes/fr/laCorp/utils/BasketMapperImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketDvdStore/target/generated-sources/annotations/fr/laCorp/utils/BasketMapperImpl.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

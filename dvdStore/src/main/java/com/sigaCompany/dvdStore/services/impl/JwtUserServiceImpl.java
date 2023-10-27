@@ -62,6 +62,7 @@ public class JwtUserServiceImpl implements JwtUserService {
         if (existingUser != null) {
             throw new AccountExistException();
         }
+        System.out.println("ff");
         Owner owner = new Owner();
         owner.setLogin(username);
         owner.setPassword(passwordEncoder.encode(password));

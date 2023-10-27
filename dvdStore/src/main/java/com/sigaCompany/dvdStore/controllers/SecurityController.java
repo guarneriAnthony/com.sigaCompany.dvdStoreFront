@@ -15,17 +15,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 public class SecurityController {
     @Autowired
     private JwtUserService userService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponseDto> register(@RequestBody AuthRequestDto dto) throws AccountExistException {
+        System.out.println("rr");
         UserDetails user = userService.save(dto.getUsername(), dto.getPassword());
         String token = userService.generateJwtForUser(user);
         return ResponseEntity.ok(new AuthResponseDto(user, token));
@@ -33,6 +33,7 @@ public class SecurityController {
 
     @PostMapping("/authorize")
     public ResponseEntity<AuthResponseDto> authorize(@RequestBody AuthRequestDto requestDTO) throws UnauthorizedException {
+        System.out.println("lala");
         Authentication authentication = null;
         try {
             authentication = userService.authenticate(requestDTO.getUsername(), requestDTO.getPassword());

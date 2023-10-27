@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Data
-
 public class Owner implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

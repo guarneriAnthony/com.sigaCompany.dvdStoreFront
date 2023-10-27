@@ -17,8 +17,8 @@ export interface ClientGetAllDto {
   email: String;
 }
 
-export interface Owner {
-  login: String
+export interface AuthRequestDto {
+  username: String
   password: String
 }
 
@@ -28,6 +28,7 @@ export interface Owner {
 export class DvdServiceService {
   private baseUrl = 'http://localhost:8080/dvdStore';
   private baseUrlClient = 'http://localhost:8080/clients';
+  private baseUrlAuth = 'http://localhost:8080/register';
 
   constructor() {}
 
@@ -60,7 +61,6 @@ export class DvdServiceService {
     const response = await axios.put(this.baseUrl + '/' + dvd.id, dvd)
     return response.data;
 }
-  /*Les Clients sont ici pour le moment !! à mettre au propre dans un service dedié */
   getAllClientAxios = async() => {
     const response = await axios.get(this.baseUrlClient)
     const clients : ClientGetAllDto[] = response.data.map((x: any)  => ({
@@ -69,7 +69,12 @@ export class DvdServiceService {
     }))
     return clients;
    }
-  /*======*/
+
+   postUserByAxios = async (user: AuthRequestDto) => {
+   const response = await axios.post(this.baseUrlAuth, user)
+   return user;
+   }
+
 
 
 
