@@ -29,7 +29,7 @@ import { NewDvdComponent } from './new-dvd/new-dvd.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
