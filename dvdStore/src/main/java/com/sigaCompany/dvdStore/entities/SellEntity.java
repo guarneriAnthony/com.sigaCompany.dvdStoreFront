@@ -5,9 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * The type Sell entity.
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -16,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class SellEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
@@ -28,13 +25,6 @@ public class SellEntity {
 
     private int quantity;
 
-    /**
-     * Instantiates a new Sell entity.
-     *
-     * @param clientEntity the client entity
-     * @param dvdEntity    the dvd entity
-     * @param quantity     the quantity
-     */
     public SellEntity(ClientEntity clientEntity, DvdEntity dvdEntity, int quantity) {
         this.clientEntity = clientEntity;
         this.dvdEntity = dvdEntity;

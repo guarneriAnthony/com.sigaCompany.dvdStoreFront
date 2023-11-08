@@ -1,6 +1,10 @@
 package com.sigaCompany.dvdStore.controllers;
 
+import com.sigaCompany.dvdStore.apiV2.ApiBasketDto;
+import com.sigaCompany.dvdStore.apiV2.ApiBasketDvdDto;
 import com.sigaCompany.dvdStore.dto.ClientDTO;
+import com.sigaCompany.dvdStore.entities.ClientEntity;
+import com.sigaCompany.dvdStore.feign.MyClientFeign;
 import com.sigaCompany.dvdStore.services.ClientService;
 import com.sigaCompany.dvdStore.services.ClientServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,43 +15,40 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The type Client controller.
- */
 @RestController
-@RequestMapping(path = "client")
+@RequestMapping(path = "clients")
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 
 public class ClientController {
-    /**
-     * The Client service.
-     */
     @Autowired
     ClientService clientService;
+    @Autowired
+    MyClientFeign myClientFeign;
 
 
-    /**
-     * Add client boolean.
-     *
-     * @param clientDTO the client dto
-     * @return the boolean
-     */
-    @CrossOrigin (origins = "http://localhost:4200/")
 
 
-    // Add new Client
+
     @PostMapping
     public boolean addClient(@RequestBody ClientDTO clientDTO) {
         ClientServiceModel clientServiceModel = new ClientServiceModel(clientDTO);
-        return clientService.add(clientServiceModel);
+        ClientEntity object = clientService.add(clientServiceModel);
+        myClientFeign.createBasket(new ApiBasketDto(object.getId()));
+        return  object!= null;
     }
-
-    /**
-     * Find all list.
-     *
-     * @return the list
-     */
-// find all Clients
+    @PostMapping("/{clientId}")
+    public boolean createBasketDvd(@PathVariable int clientId, @RequestBody ApiBasketDvdDto apiBasketDvdDto) {
+        myClientFeign.createBasketDvd(clientId, apiBasketDvdDto);
+        return true;
+    }
+    @GetMapping("/basket")
+    public List<ApiBasketDto> readAllBasket() {
+        return myClientFeign.readAllBasket();
+    }
+    @GetMapping("/{clientId}/basket")
+    public ApiBasketDto readBasketByClientId(@PathVariable int clientId) {
+        return myClientFeign.readBasketByClientId(clientId);
+    }
     @GetMapping
     public List<ClientDTO> findAll() {
         List<ClientServiceModel> clientServiceModels = clientService.findAll();
@@ -57,45 +58,22 @@ public class ClientController {
         }
         return clientDTOS;
     }
-
-    /**
-     * Find by id response entity.
-     *
-     * @param id the id
-     * @return the response entity
-     */
-// Function to find information from one client, by id
-    @GetMapping("{id}")
-    public ResponseEntity<ClientDTO> findById(@PathVariable long id){
-        ClientServiceModel client = clientService.finById(id);
+    @GetMapping("/{clientId}")
+    public ResponseEntity<ClientDTO> findById(@PathVariable int clientId){
+        ClientServiceModel client = clientService.findById(clientId);
         ClientDTO clientDTO = new ClientDTO(client.getId(), client.getName(),client.getEmail());
         return new ResponseEntity<>(clientDTO, HttpStatus.OK);
     }
-
-    /**
-     * Find by name response entity.
-     *
-     * @param name the name
-     * @return the response entity
-     */
-//Find Client by Name
     @GetMapping("/byname/{name}")
     public ResponseEntity<List<ClientDTO>> findByName(@PathVariable String name){
         List<ClientServiceModel> clientServiceModels = clientService.findByName(name);
+        System.out.println(clientServiceModels);
         List<ClientDTO> clientDTOS = new ArrayList<>();
         for (ClientServiceModel clientServiceModel : clientServiceModels){
             clientDTOS.add(new ClientDTO(clientServiceModel.getId(), clientServiceModel.getName(), clientServiceModel.getEmail()));
         }
         return new ResponseEntity<>(clientDTOS, HttpStatus.OK);
     }
-
-    /**
-     * Find by email response entity.
-     *
-     * @param email the email
-     * @return the response entity
-     */
-//Find Client by Email
     @GetMapping("/byemail/{email}")
     public ResponseEntity<List<ClientDTO>> findByEmail(@PathVariable String email){
         List<ClientServiceModel> clientServiceModels = clientService.findByEmail(email);
@@ -105,27 +83,38 @@ public class ClientController {
         }
         return new ResponseEntity<>(clientDTOS, HttpStatus.OK);
     }
+    @PutMapping("{clientId}/basket")
+    public void updateBasketByClientId(@PathVariable int clientId, @RequestBody ApiBasketDto apiBasketDto) {
+        myClientFeign.updateBasketByClientId(clientId, apiBasketDto);
+    }
 
-    /**
-     * Update client.
-     *
-     * @param id        the id
-     * @param clientDTO the client dto
-     */
-//Update one client
+    @PutMapping("{clientId}/basket-dvd/{id}")
+    public void updateBasketDvdById(@PathVariable int clientId, @PathVariable int id, @RequestBody ApiBasketDvdDto apiBasketDvdDto) {
+        myClientFeign.updateBasketDvdById(clientId, id, apiBasketDvdDto);
+    }
     @PutMapping("{id}")
-    public void updateClient(@PathVariable long id, @RequestBody ClientDTO clientDTO) {
+    public void updateClient(@PathVariable int id, @RequestBody ClientDTO clientDTO) {
         clientService.updateClient(id, clientDTO);
     }
-
-    /**
-     * Delete by id.
-     *
-     * @param id the id
-     */
-//Delete one client
-    @DeleteMapping("{id}")
-    public void deleteById(@PathVariable long id) {
-        clientService.deleteById(id);
+    @DeleteMapping("{clientId}")
+    public void deleteBasketByClientId(@PathVariable int clientId) {
+        myClientFeign.deleteBasketByClientId(clientId);
     }
+    @DeleteMapping("{clientId}/basket-dvd/{id}")
+    public void deleteBasketDvdById(@PathVariable int clientId, @PathVariable int id) {
+        myClientFeign.deleteBasketDvdById(clientId, id);
+    }
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable int id) {
+        clientService.deleteById(id);
+        myClientFeign.deleteBasketByClientId(id);
+    }
+    @DeleteMapping("/{clientId}/basket-dvd")
+    public void deleteAllBasketDvdByClientId(@PathVariable int clientId) {
+        myClientFeign.deleteAllBasketDvdByClientId(clientId);
+    }
+
+
+
+
 }

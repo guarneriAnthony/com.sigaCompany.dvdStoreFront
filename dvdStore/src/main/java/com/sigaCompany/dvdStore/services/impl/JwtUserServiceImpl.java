@@ -22,17 +22,11 @@ import java.util.Date;
 import java.util.List;
 
 
-/**
- * The type Jwt user service.
- */
 @Service
 public class JwtUserServiceImpl implements JwtUserService {
     @Autowired
     private OwnerRepository ownerRepository;
 
-    /**
-     * The Authentication configuration.
-     */
     @Autowired
     AuthenticationConfiguration authenticationConfiguration;
 
@@ -40,11 +34,6 @@ public class JwtUserServiceImpl implements JwtUserService {
     private PasswordEncoder passwordEncoder;
     private String signingKey;
 
-    /**
-     * Instantiates a new Jwt user service.
-     *
-     * @param signingKey the signing key
-     */
     public JwtUserServiceImpl(@Value("${jwt.signing.key}") String signingKey) {
         this.signingKey = signingKey;
     }

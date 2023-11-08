@@ -15,25 +15,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-/**
- * The type Security controller.
- */
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 public class SecurityController {
     @Autowired
     private JwtUserService userService;
 
-    /**
-     * Register response entity.
-     *
-     * @param dto the dto
-     * @return the response entity
-     * @throws AccountExistException the account exist exception
-     */
     @PostMapping("/register")
     public ResponseEntity<AuthResponseDto> register(@RequestBody AuthRequestDto dto) throws AccountExistException {
         UserDetails user = userService.save(dto.getUsername(), dto.getPassword());
@@ -41,13 +30,6 @@ public class SecurityController {
         return ResponseEntity.ok(new AuthResponseDto(user, token));
     }
 
-    /**
-     * Authorize response entity.
-     *
-     * @param requestDTO the request dto
-     * @return the response entity
-     * @throws UnauthorizedException the unauthorized exception
-     */
     @PostMapping("/authorize")
     public ResponseEntity<AuthResponseDto> authorize(@RequestBody AuthRequestDto requestDTO) throws UnauthorizedException {
         Authentication authentication = null;

@@ -15,9 +15,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 
-/**
- * The type Security filter.
- */
 public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUserService jwtUserService;
