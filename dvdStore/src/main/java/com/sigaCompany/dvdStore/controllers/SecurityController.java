@@ -32,7 +32,6 @@ public class SecurityController {
 
     @PostMapping("/authorize")
     public ResponseEntity<AuthResponseDto> authorize(@RequestBody AuthRequestDto requestDTO) throws UnauthorizedException {
-        System.out.println("lala");
         Authentication authentication = null;
         try {
             authentication = userService.authenticate(requestDTO.getUsername(), requestDTO.getPassword());

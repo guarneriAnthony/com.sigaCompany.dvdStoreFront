@@ -91,7 +91,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.DvdStoreApplication">
+  <component name="RunManager" selected="JUnit.DvdControllerTest">
     <configuration name="BasketApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.laCorp.BasketApplication" />
       <module name="basketDvdStore" />
@@ -118,8 +118,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DvdControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dvdStore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigaCompany.dvdStore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sigaCompany.dvdStore" />
+      <option name="MAIN_CLASS_NAME" value="com.sigaCompany.dvdStore.DvdControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DvdStoreApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dvdStore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigaCompany.dvdStore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sigaCompany.dvdStore" />
+      <option name="MAIN_CLASS_NAME" value="com.sigaCompany.dvdStore.DvdStoreApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DvdControllerTest" />
+        <item itemvalue="JUnit.DvdStoreApplicationTests" />
         <item itemvalue="Application.BasketApplication" />
       </list>
     </recent_temporary>

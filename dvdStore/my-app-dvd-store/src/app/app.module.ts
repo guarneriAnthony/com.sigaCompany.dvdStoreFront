@@ -12,6 +12,7 @@ import { SalesListComponent } from './sales-list/sales-list.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
 import { NewDvdComponent } from './new-dvd/new-dvd.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NewDvdComponent } from './new-dvd/new-dvd.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
